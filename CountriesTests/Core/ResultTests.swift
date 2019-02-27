@@ -10,7 +10,7 @@ class ResultTests: XCTestCase {
     enum MockError: Error { case some }
 
     func testInitializationWithSuccessValue() {
-        let expectedValue = UUID()
+        let expectedValue = UUID.random()
         let result = Result(value: expectedValue)
         switch result {
         case .success(let value):
@@ -31,7 +31,7 @@ class ResultTests: XCTestCase {
     }
 
     func testValueProperty() {
-        let expectedValue = UUID()
+        let expectedValue = UUID.random()
         let result = Result.success(expectedValue)
         XCTAssertEqual(result.value, expectedValue)
     }
@@ -42,8 +42,8 @@ class ResultTests: XCTestCase {
     }
     
     func testMapSuccessValue() {
-        let initialValue = UUID()
-        let expectedValue = UUID().uuidString
+        let initialValue = UUID.random()
+        let expectedValue = String.random()
 
         let initialResult = Result(value: initialValue)
         let result = initialResult.map { value -> String in
