@@ -27,6 +27,16 @@
 		D8F643AA2226FB02008111FB /* CountryListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F643A92226FB02008111FB /* CountryListViewModelTests.swift */; };
 		D8F643AE22270548008111FB /* CountriesProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F643AD22270548008111FB /* CountriesProviderMock.swift */; };
 		D8F643B022270AD0008111FB /* CountryListViewModelDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F643AF22270AD0008111FB /* CountryListViewModelDelegateMock.swift */; };
+		D8F643B4222713DF008111FB /* JSONDecoderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F643B3222713DF008111FB /* JSONDecoderProtocol.swift */; };
+		D8F643B8222713F4008111FB /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F643B6222713F4008111FB /* URLSessionProtocol.swift */; };
+		D8F643B9222713F4008111FB /* URLSessionDataTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F643B7222713F4008111FB /* URLSessionDataTaskProtocol.swift */; };
+		D8F643BB2227148E008111FB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F643BA2227148E008111FB /* Constants.swift */; };
+		D8F643BD22271889008111FB /* CountriesProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F643BC22271889008111FB /* CountriesProviderTests.swift */; };
+		D8F643C022271DD9008111FB /* URLSessionDataTaskMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F643BE22271DD9008111FB /* URLSessionDataTaskMock.swift */; };
+		D8F643C122271DD9008111FB /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F643BF22271DD9008111FB /* URLSessionMock.swift */; };
+		D8F643C322271EA5008111FB /* JSONPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F643C222271EA5008111FB /* JSONPresentable.swift */; };
+		D8F643C522271FFF008111FB /* XCTestCase+URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F643C422271FFF008111FB /* XCTestCase+URLSessionMock.swift */; };
+		D8F643C72228250D008111FB /* JSONDecoderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F643C62228250D008111FB /* JSONDecoderMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +74,16 @@
 		D8F643A92226FB02008111FB /* CountryListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewModelTests.swift; sourceTree = "<group>"; };
 		D8F643AD22270548008111FB /* CountriesProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesProviderMock.swift; sourceTree = "<group>"; };
 		D8F643AF22270AD0008111FB /* CountryListViewModelDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewModelDelegateMock.swift; sourceTree = "<group>"; };
+		D8F643B3222713DF008111FB /* JSONDecoderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecoderProtocol.swift; sourceTree = "<group>"; };
+		D8F643B6222713F4008111FB /* URLSessionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		D8F643B7222713F4008111FB /* URLSessionDataTaskProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskProtocol.swift; sourceTree = "<group>"; };
+		D8F643BA2227148E008111FB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D8F643BC22271889008111FB /* CountriesProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesProviderTests.swift; sourceTree = "<group>"; };
+		D8F643BE22271DD9008111FB /* URLSessionDataTaskMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskMock.swift; sourceTree = "<group>"; };
+		D8F643BF22271DD9008111FB /* URLSessionMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
+		D8F643C222271EA5008111FB /* JSONPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONPresentable.swift; sourceTree = "<group>"; };
+		D8F643C422271FFF008111FB /* XCTestCase+URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+URLSessionMock.swift"; sourceTree = "<group>"; };
+		D8F643C62228250D008111FB /* JSONDecoderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +154,7 @@
 		D8F6437D2225F7E9008111FB /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				D8F643B5222713F4008111FB /* Networking */,
 				D8F643A72226F8F7008111FB /* CountriesProvider.swift */,
 			);
 			path = Services;
@@ -150,6 +171,8 @@
 		D8F643832225FEA6008111FB /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				D8F643BA2227148E008111FB /* Constants.swift */,
+				D8F643B3222713DF008111FB /* JSONDecoderProtocol.swift */,
 				D8F643A52226F849008111FB /* RandomAccessCollection+Helpers.swift */,
 				D8F643842225FEDC008111FB /* Result.swift */,
 			);
@@ -205,6 +228,8 @@
 			isa = PBXGroup;
 			children = (
 				D8F6439C2226EA2C008111FB /* Country+Helpers.swift */,
+				D8F643C222271EA5008111FB /* JSONPresentable.swift */,
+				D8F643C62228250D008111FB /* JSONDecoderMock.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -222,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				D8F643AC22270539008111FB /* Helpers */,
+				D8F643BC22271889008111FB /* CountriesProviderTests.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -230,8 +256,20 @@
 			isa = PBXGroup;
 			children = (
 				D8F643AD22270548008111FB /* CountriesProviderMock.swift */,
+				D8F643BE22271DD9008111FB /* URLSessionDataTaskMock.swift */,
+				D8F643BF22271DD9008111FB /* URLSessionMock.swift */,
+				D8F643C422271FFF008111FB /* XCTestCase+URLSessionMock.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D8F643B5222713F4008111FB /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D8F643B6222713F4008111FB /* URLSessionProtocol.swift */,
+				D8F643B7222713F4008111FB /* URLSessionDataTaskProtocol.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,6 +373,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8F643B8222713F4008111FB /* URLSessionProtocol.swift in Sources */,
+				D8F643B4222713DF008111FB /* JSONDecoderProtocol.swift in Sources */,
 				D8F643912226B548008111FB /* Country.swift in Sources */,
 				D8F643A82226F8F7008111FB /* CountriesProvider.swift in Sources */,
 				D8F643A62226F849008111FB /* RandomAccessCollection+Helpers.swift in Sources */,
@@ -342,7 +382,9 @@
 				D8F643852225FEDC008111FB /* Result.swift in Sources */,
 				D8F643A42226F58A008111FB /* DataState.swift in Sources */,
 				D8F643A22226F51C008111FB /* CountryListViewModel.swift in Sources */,
+				D8F643B9222713F4008111FB /* URLSessionDataTaskProtocol.swift in Sources */,
 				D8F6435E2225E636008111FB /* AppDelegate.swift in Sources */,
+				D8F643BB2227148E008111FB /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,11 +392,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8F643C122271DD9008111FB /* URLSessionMock.swift in Sources */,
+				D8F643C522271FFF008111FB /* XCTestCase+URLSessionMock.swift in Sources */,
 				D8F643A02226EB64008111FB /* CountryListItemViewModel+Helpers.swift in Sources */,
+				D8F643C022271DD9008111FB /* URLSessionDataTaskMock.swift in Sources */,
+				D8F643BD22271889008111FB /* CountriesProviderTests.swift in Sources */,
 				D8F643B022270AD0008111FB /* CountryListViewModelDelegateMock.swift in Sources */,
 				D8F643972226E8FC008111FB /* String+Random.swift in Sources */,
 				D8F643942226E89C008111FB /* CountryListItemViewModelTests.swift in Sources */,
 				D8F6438C2226AC2D008111FB /* ResultTests.swift in Sources */,
+				D8F643C72228250D008111FB /* JSONDecoderMock.swift in Sources */,
+				D8F643C322271EA5008111FB /* JSONPresentable.swift in Sources */,
 				D8F643AA2226FB02008111FB /* CountryListViewModelTests.swift in Sources */,
 				D8F6439D2226EA2C008111FB /* Country+Helpers.swift in Sources */,
 				D8F643992226E932008111FB /* UUID+Random.swift in Sources */,

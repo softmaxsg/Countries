@@ -25,7 +25,7 @@ final class CountryListItemViewModel: CountryListItemViewModelProtocol {
     init(country: Country) {
         name = country.name
         nativeName = country.nativeName
-        flagUrl = URL(string: "https://flagpedia.net/data/flags/small/\(country.countryCode2.lowercased()).png")!
+        flagUrl = URL(string: String(format: Constants.countryFlagUrlTemplate, country.countryCode2.lowercased()))!
         
         let formatter = CountryListItemViewModel.numberFormatter()
         population = formatter.string(from: NSNumber(value: country.population))!

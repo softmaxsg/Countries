@@ -22,3 +22,17 @@ extension Country {
     }
     
 }
+
+extension Country: JSONPresentable {
+    
+    func JSON() -> [String: Any] {
+        return [
+            "alpha2Code": countryCode2,
+            "name": name,
+            "nativeName": nativeName,
+            "population": population,
+            "area": areaSize as Any,
+        ]
+    }
+    
+}
