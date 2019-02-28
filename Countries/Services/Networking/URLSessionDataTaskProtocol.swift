@@ -4,7 +4,7 @@
 
 import Foundation
 
-protocol URLSessionDataTaskProtocol {
+protocol URLSessionDataTaskProtocol: Cancellable {
     
     func resume()
     

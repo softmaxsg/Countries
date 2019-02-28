@@ -37,6 +37,7 @@
 		D8F643C322271EA5008111FB /* JSONPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F643C222271EA5008111FB /* JSONPresentable.swift */; };
 		D8F643C522271FFF008111FB /* XCTestCase+URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F643C422271FFF008111FB /* XCTestCase+URLSessionMock.swift */; };
 		D8F643C72228250D008111FB /* JSONDecoderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F643C62228250D008111FB /* JSONDecoderMock.swift */; };
+		D8F643D522285B8E008111FB /* Cancellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F643D422285B8E008111FB /* Cancellable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		D8F643C222271EA5008111FB /* JSONPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONPresentable.swift; sourceTree = "<group>"; };
 		D8F643C422271FFF008111FB /* XCTestCase+URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+URLSessionMock.swift"; sourceTree = "<group>"; };
 		D8F643C62228250D008111FB /* JSONDecoderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderMock.swift; sourceTree = "<group>"; };
+		D8F643D422285B8E008111FB /* Cancellable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cancellable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 		D8F643832225FEA6008111FB /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				D8F643D422285B8E008111FB /* Cancellable.swift */,
 				D8F643BA2227148E008111FB /* Constants.swift */,
 				D8F643B3222713DF008111FB /* JSONDecoderProtocol.swift */,
 				D8F643A52226F849008111FB /* RandomAccessCollection+Helpers.swift */,
@@ -379,6 +382,7 @@
 				D8F643A82226F8F7008111FB /* CountriesProvider.swift in Sources */,
 				D8F643A62226F849008111FB /* RandomAccessCollection+Helpers.swift in Sources */,
 				D8F6438F2226B2C7008111FB /* CountryListItemViewModel.swift in Sources */,
+				D8F643D522285B8E008111FB /* Cancellable.swift in Sources */,
 				D8F643852225FEDC008111FB /* Result.swift in Sources */,
 				D8F643A42226F58A008111FB /* DataState.swift in Sources */,
 				D8F643A22226F51C008111FB /* CountryListViewModel.swift in Sources */,

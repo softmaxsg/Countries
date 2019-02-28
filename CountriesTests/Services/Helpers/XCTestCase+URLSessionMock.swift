@@ -11,7 +11,7 @@ extension XCTestCase {
         return URLSessionMock { request, completion in
             XCTAssertEqual(request.url, expectedUrl, file: file, line: line)
             
-            return URLSessionDataTaskMock {
+            return URLSessionDataTaskMock(resume: {
                 let urlResponse = HTTPURLResponse(
                     url: request.url!,
                     statusCode: resultStatusCode,
@@ -23,7 +23,9 @@ extension XCTestCase {
                     completion(result.value, urlResponse, result.error)
                     expectation?.fulfill()
                 }
-            }
+            }, cancel: {
+                // Nothing has to be done here
+            })
         }
     }
     
