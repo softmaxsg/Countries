@@ -9,7 +9,6 @@ extension CountryListItemViewModelProtocol {
     
     func isEqual(to country: Country) -> Bool {
         guard name == country.name else { return false }
-        guard nativeName == country.nativeName else { return false }
         
         let expectedFlagUrl = URL(string: "https://flagpedia.net/data/flags/small/\(country.countryCode2.lowercased()).png")!
         guard flagUrl == expectedFlagUrl else { return false }
