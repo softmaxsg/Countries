@@ -53,6 +53,7 @@
 		D8F643F12228733C008111FB /* CountryViewCellTests_testNormalAppearance@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F643ED2228733C008111FB /* CountryViewCellTests_testNormalAppearance@3x.png */; };
 		D8F643F22228733C008111FB /* CountryViewCellTests_testNoAreaSizeAppearance@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F643EE2228733C008111FB /* CountryViewCellTests_testNoAreaSizeAppearance@2x.png */; };
 		D8F643F32228733C008111FB /* CountryViewCellTests_testNormalAppearance@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F643EF2228733C008111FB /* CountryViewCellTests_testNormalAppearance@2x.png */; };
+		D8F643F5222887BC008111FB /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F643F4222887BC008111FB /* DependencyContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,7 @@
 		D8F643ED2228733C008111FB /* CountryViewCellTests_testNormalAppearance@3x.png */ = {isa = PBXFileReference; explicitFileType = compiled; path = "CountryViewCellTests_testNormalAppearance@3x.png"; sourceTree = "<group>"; };
 		D8F643EE2228733C008111FB /* CountryViewCellTests_testNoAreaSizeAppearance@2x.png */ = {isa = PBXFileReference; explicitFileType = compiled; path = "CountryViewCellTests_testNoAreaSizeAppearance@2x.png"; sourceTree = "<group>"; };
 		D8F643EF2228733C008111FB /* CountryViewCellTests_testNormalAppearance@2x.png */ = {isa = PBXFileReference; explicitFileType = compiled; path = "CountryViewCellTests_testNormalAppearance@2x.png"; sourceTree = "<group>"; };
+		D8F643F4222887BC008111FB /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +211,7 @@
 			children = (
 				D8F643D422285B8E008111FB /* Cancellable.swift */,
 				D8F643BA2227148E008111FB /* Constants.swift */,
+				D8F643F4222887BC008111FB /* DependencyContainer.swift */,
 				D8F643B3222713DF008111FB /* JSONDecoderProtocol.swift */,
 				D8F643A52226F849008111FB /* RandomAccessCollection+Helpers.swift */,
 				D8F643842225FEDC008111FB /* Result.swift */,
@@ -457,6 +460,7 @@
 				D8F643A82226F8F7008111FB /* CountriesProvider.swift in Sources */,
 				D8F643A62226F849008111FB /* RandomAccessCollection+Helpers.swift in Sources */,
 				D8F6438F2226B2C7008111FB /* CountryListItemViewModel.swift in Sources */,
+				D8F643F5222887BC008111FB /* DependencyContainer.swift in Sources */,
 				D8F643D522285B8E008111FB /* Cancellable.swift in Sources */,
 				D8F643852225FEDC008111FB /* Result.swift in Sources */,
 				D8F643A42226F58A008111FB /* DataState.swift in Sources */,

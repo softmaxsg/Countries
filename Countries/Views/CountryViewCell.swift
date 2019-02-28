@@ -14,7 +14,7 @@ final class CountryViewCell: UITableViewCell, ImageContainerView {
     @IBOutlet weak var areaSizeLabel: UILabel?
     @IBOutlet weak var areaSizeWrapper: UIView?
 
-    var imageLoader: ImageLoaderProtocol = ImageLoader()
+    var imageLoader: ImageLoaderProtocol = DependencyContainer.shared.imageLoader
     var currentImageLoaderTask: Cancellable?
     
     // ImageContainerView works with `imageView` property
