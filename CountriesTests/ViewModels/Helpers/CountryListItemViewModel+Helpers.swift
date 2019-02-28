@@ -19,7 +19,7 @@ extension CountryListItemViewModelProtocol {
         let expectedPopulation = formatter.string(from: NSNumber(value: country.population))!
         guard population == expectedPopulation else { return false }
 
-        let expectedAreaSize = "\(formatter.string(from: NSNumber(value: country.areaSize))!) km\u{B2}"
+        let expectedAreaSize = country.areaSize.flatMap { "\(formatter.string(from: NSNumber(value: $0))!) km\u{B2}" } ?? ""
         guard areaSize == expectedAreaSize else { return false }
         
         return true

@@ -10,6 +10,6 @@ struct Country {
     let name: String
     let nativeName: String
     let population: UInt64
-    let areaSize: Double
+    let areaSize: Double?
     
 }

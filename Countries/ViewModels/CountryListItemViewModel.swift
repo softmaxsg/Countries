@@ -29,7 +29,7 @@ final class CountryListItemViewModel: CountryListItemViewModelProtocol {
         
         let formatter = CountryListItemViewModel.numberFormatter()
         population = formatter.string(from: NSNumber(value: country.population))!
-        areaSize = "\(formatter.string(from: NSNumber(value: country.areaSize))!) km\u{B2}"
+        areaSize = country.areaSize.flatMap { "\(formatter.string(from: NSNumber(value: $0))!) km\u{B2}" } ?? ""
     }
     
 }
