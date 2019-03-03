@@ -69,7 +69,11 @@ extension CountryListViewModelTests {
             expectation.fulfill()
         }
         
-        viewModel = CountryListViewModel(delegate: delegate, countriesProvider: provider)
+        viewModel = CountryListViewModel(
+            delegate: delegate,
+            countriesProvider: provider,
+            filteringService: FilteringService()
+        )
         
         viewModel.loadCountries()
         wait(for: [expectation], timeout: 1)

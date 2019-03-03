@@ -9,7 +9,8 @@ final class CountriesAssembly {
     func countriesViewModel(delegate: CountryListViewModelDelegate) -> CountryListViewModel {
         return CountryListViewModel(
             delegate: delegate,
-            countriesProvider: CountriesProvider()
+            countriesProvider: CountriesProvider(),
+            filteringService: FilteringService()
         )
     }
     

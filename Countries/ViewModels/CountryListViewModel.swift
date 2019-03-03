@@ -24,15 +24,21 @@ final class CountryListViewModel: CountryListViewModelProtocol {
     private weak var delegate: CountryListViewModelDelegate?
     
     private let countriesProvider: CountriesProviderProtocol
+    private let filteringService: FilteringServiceProtocol
 
     private let operationQueue = OperationQueue()
     private var countries: [Country] = [] { didSet { updateItems() } }
     private var items: [CountryListItemViewModelProtocol] = []
 
-    init(delegate: CountryListViewModelDelegate, countriesProvider: CountriesProviderProtocol) {
+    init(delegate: CountryListViewModelDelegate,
+         countriesProvider: CountriesProviderProtocol,
+         filteringService: FilteringServiceProtocol) {
         self.delegate = delegate
         self.countriesProvider = countriesProvider
+        self.filteringService = filteringService
     }
+    
+    var filteringText: String = "" { didSet { updateItems() } }
     
     private(set) var currentState = DataState.data(count: 0) { didSet { delegate?.stateDidChange() } }
     
@@ -60,6 +66,7 @@ final class CountryListViewModel: CountryListViewModelProtocol {
 extension CountryListViewModel {
     
     private func updateItems() {
+        let countries = filteringService.filtered(self.countries, using: filteringText)
         let items = countries.map(CountryListItemViewModel.init)
         
         OperationQueue.main.addOperation {

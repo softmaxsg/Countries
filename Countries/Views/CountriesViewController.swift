@@ -25,6 +25,7 @@ final class CountriesViewController: UITableViewController, StateBackgroundViewS
         
         CountryViewCell.register(in: tableView, with: CellIdentifier.country.rawValue)
         
+        updateControls()
         viewModel.loadCountries()
     }
     
@@ -57,7 +58,47 @@ final class CountriesViewController: UITableViewController, StateBackgroundViewS
 extension CountriesViewController: CountryListViewModelDelegate {
     
     func stateDidChange() {
+        updateControls()
         tableView.reloadData()
+    }
+    
+}
+
+extension CountriesViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        viewModel.filteringText = searchController.searchBar.text ?? ""
+    }
+    
+}
+
+extension CountriesViewController {
+    
+    private func configureSearchController() {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Filter countries"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
+        searchController.searchBar.text = viewModel.filteringText
+        
+        // Allows to show search bar immediately but still let it hide when scrolling
+        navigationItem.hidesSearchBarWhenScrolling = false
+        defer { navigationItem.hidesSearchBarWhenScrolling = true }
+    }
+    
+    private func updateControls() {
+        switch currentState {
+        case .data:
+            if navigationItem.searchController == nil {
+                configureSearchController()
+            }
+            
+        default:
+            navigationItem.searchController = nil
+        }
     }
     
 }
