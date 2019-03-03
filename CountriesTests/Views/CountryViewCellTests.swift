@@ -25,7 +25,7 @@ final class CountryViewCellTests: XCTestCase {
     
     func testNormalAppearance() {
         let cell = self.cell
-        cell.configure(with: CountryListItemViewModel(country: Country(
+        cell.configure(with: CountryListItemViewModel(country: .random(
             countryCode2: "AA",
             name: "Country Name",
             nativeName: "Country Native Name",
@@ -39,7 +39,7 @@ final class CountryViewCellTests: XCTestCase {
     
     func testNoAreaSizeAppearance() {
         let cell = self.cell
-        cell.configure(with: CountryListItemViewModel(country: Country(
+        cell.configure(with: CountryListItemViewModel(country: .random(
             countryCode2: "AA",
             name: "Country Name",
             nativeName: "Country Native Name",
