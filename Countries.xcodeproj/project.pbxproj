@@ -72,6 +72,12 @@
 		D8F64410222C49C2008111FB /* NameTranslationsDecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6440F222C49C2008111FB /* NameTranslationsDecodingTests.swift */; };
 		D8F64412222C4AB0008111FB /* LanguageDecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64411222C4AB0008111FB /* LanguageDecodingTests.swift */; };
 		D8F64414222C4D3A008111FB /* CountryDecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64413222C4D3A008111FB /* CountryDecodingTests.swift */; };
+		D8F6441E222C7083008111FB /* CountryGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6441D222C7083008111FB /* CountryGeocoder.swift */; };
+		D8F64420222C70D0008111FB /* CLGeocoderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6441F222C70CF008111FB /* CLGeocoderProtocol.swift */; };
+		D8F64424222C8D37008111FB /* CountryGeocoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64423222C8D37008111FB /* CountryGeocoderTests.swift */; };
+		D8F64426222C8D8A008111FB /* CLGeocoderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64425222C8D8A008111FB /* CLGeocoderMock.swift */; };
+		D8F64428222C8F1B008111FB /* CLLocation+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64427222C8F1B008111FB /* CLLocation+Random.swift */; };
+		D8F6442D222C9315008111FB /* CLPlacemarkMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6442C222C9315008111FB /* CLPlacemarkMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +160,12 @@
 		D8F6440F222C49C2008111FB /* NameTranslationsDecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameTranslationsDecodingTests.swift; sourceTree = "<group>"; };
 		D8F64411222C4AB0008111FB /* LanguageDecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageDecodingTests.swift; sourceTree = "<group>"; };
 		D8F64413222C4D3A008111FB /* CountryDecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDecodingTests.swift; sourceTree = "<group>"; };
+		D8F6441D222C7083008111FB /* CountryGeocoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryGeocoder.swift; sourceTree = "<group>"; };
+		D8F6441F222C70CF008111FB /* CLGeocoderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLGeocoderProtocol.swift; sourceTree = "<group>"; };
+		D8F64423222C8D37008111FB /* CountryGeocoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryGeocoderTests.swift; sourceTree = "<group>"; };
+		D8F64425222C8D8A008111FB /* CLGeocoderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLGeocoderMock.swift; sourceTree = "<group>"; };
+		D8F64427222C8F1B008111FB /* CLLocation+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+Random.swift"; sourceTree = "<group>"; };
+		D8F6442C222C9315008111FB /* CLPlacemarkMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLPlacemarkMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +242,7 @@
 			children = (
 				D8F643B5222713F4008111FB /* Networking */,
 				D8F643A72226F8F7008111FB /* CountriesProvider.swift */,
+				D8F6441D222C7083008111FB /* CountryGeocoder.swift */,
 				D8F643F922289842008111FB /* FilteringService.swift */,
 				D8F643D622285C02008111FB /* ImageLoader.swift */,
 			);
@@ -250,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				D8F643D422285B8E008111FB /* Cancellable.swift */,
+				D8F6441F222C70CF008111FB /* CLGeocoderProtocol.swift */,
 				D8F643BA2227148E008111FB /* Constants.swift */,
 				D8F643F4222887BC008111FB /* DependencyContainer.swift */,
 				D8F643B3222713DF008111FB /* JSONDecoderProtocol.swift */,
@@ -291,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				D8F64407222BD64A008111FB /* Array+Random.swift */,
+				D8F64427222C8F1B008111FB /* CLLocation+Random.swift */,
 				D8F64405222BD2D2008111FB /* RangeReplaceableCollection+Helpers.swift */,
 				D8F643962226E8FC008111FB /* String+Random.swift */,
 				D8F643E322286F96008111FB /* UIImage+Helpers.swift */,
@@ -341,6 +356,7 @@
 			children = (
 				D8F643AC22270539008111FB /* Helpers */,
 				D8F643BC22271889008111FB /* CountriesProviderTests.swift */,
+				D8F64423222C8D37008111FB /* CountryGeocoderTests.swift */,
 				D8F6440322295B09008111FB /* FilteredServiceTests.swift */,
 				D8F643D822285DDB008111FB /* ImageLoaderTests.swift */,
 			);
@@ -350,6 +366,8 @@
 		D8F643AC22270539008111FB /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D8F64425222C8D8A008111FB /* CLGeocoderMock.swift */,
+				D8F6442C222C9315008111FB /* CLPlacemarkMock.swift */,
 				D8F643AD22270548008111FB /* CountriesProviderMock.swift */,
 				D8F643E922286FE9008111FB /* ImageLoaderMock.swift */,
 				D8F643BE22271DD9008111FB /* URLSessionDataTaskMock.swift */,
@@ -525,6 +543,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8F643B8222713F4008111FB /* URLSessionProtocol.swift in Sources */,
+				D8F6441E222C7083008111FB /* CountryGeocoder.swift in Sources */,
+				D8F64420222C70D0008111FB /* CLGeocoderProtocol.swift in Sources */,
 				D8F643B4222713DF008111FB /* JSONDecoderProtocol.swift in Sources */,
 				D8F643912226B548008111FB /* Country.swift in Sources */,
 				D8F643A82226F8F7008111FB /* CountriesProvider.swift in Sources */,
@@ -555,13 +575,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8F64426222C8D8A008111FB /* CLGeocoderMock.swift in Sources */,
 				D8F6440A222C4905008111FB /* DecodingTester.swift in Sources */,
+				D8F64428222C8F1B008111FB /* CLLocation+Random.swift in Sources */,
 				D8F6440422295B09008111FB /* FilteredServiceTests.swift in Sources */,
 				D8F643C122271DD9008111FB /* URLSessionMock.swift in Sources */,
 				D8F643C522271FFF008111FB /* XCTestCase+URLSessionMock.swift in Sources */,
 				D8F643EA22286FE9008111FB /* ImageLoaderMock.swift in Sources */,
 				D8F643A02226EB64008111FB /* CountryListItemViewModel+Helpers.swift in Sources */,
 				D8F643E722286F96008111FB /* UIImage+Helpers.swift in Sources */,
+				D8F6442D222C9315008111FB /* CLPlacemarkMock.swift in Sources */,
 				D8F64410222C49C2008111FB /* NameTranslationsDecodingTests.swift in Sources */,
 				D8F6440C222C493D008111FB /* Dictionary+Helpers.swift in Sources */,
 				D8F643C022271DD9008111FB /* URLSessionDataTaskMock.swift in Sources */,
@@ -582,6 +605,7 @@
 				D8F64406222BD2D2008111FB /* RangeReplaceableCollection+Helpers.swift in Sources */,
 				D8F64414222C4D3A008111FB /* CountryDecodingTests.swift in Sources */,
 				D8F64412222C4AB0008111FB /* LanguageDecodingTests.swift in Sources */,
+				D8F64424222C8D37008111FB /* CountryGeocoderTests.swift in Sources */,
 				D8F6439D2226EA2C008111FB /* Country+Helpers.swift in Sources */,
 				D8F643992226E932008111FB /* UUID+Random.swift in Sources */,
 				D8F6440E222C4986008111FB /* JSONDecoder+Helpers.swift in Sources */,
