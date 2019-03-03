@@ -7,7 +7,7 @@ import XCTest
 
 final class CountriesProviderTests: XCTestCase {
 
-    private let expectedCountries = Array(1...Int.random(in: 1...200)).map { _ in Country.random() }
+    private let expectedCountries: [Country] = .random(maxCount: 200) { .random() }
     
     func testLoadAllSuccessful() {
         let urlSession = mockedSession(result: .success(expectedCountries))

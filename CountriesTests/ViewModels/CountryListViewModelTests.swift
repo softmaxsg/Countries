@@ -7,7 +7,7 @@ import XCTest
 
 final class CountryListViewModelTests: XCTestCase {
 
-    private let initialCountries = Array(1...Int.random(in: 1...200)).map { _ in Country.random() }
+    private let initialCountries: [Country] = .random(maxCount: 200) { .random() }
 
     func testAllItems() {
         let viewModel = self.viewModel(with: .success(initialCountries))
