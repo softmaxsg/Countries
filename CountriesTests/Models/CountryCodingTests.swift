@@ -5,7 +5,7 @@
 import XCTest
 @testable import Countries
 
-final class CountryDecodingTests: XCTestCase, DecodingTester {
+final class CountryCodingTests: XCTestCase, CodingTester {
     
     let expectedObject = Country.random()
     let optionalFields = [Country.CodingKeys.areaSize.rawValue]
@@ -22,5 +22,9 @@ final class CountryDecodingTests: XCTestCase, DecodingTester {
     func testOptionalFields() {
         performOptionalFieldsTest()
     }
-    
+
+    func testEncoding() {
+        performFullEncodingTest()
+    }
+
 }

@@ -4,7 +4,7 @@
 
 import XCTest
 
-protocol DecodingTester {
+protocol CodingTester {
     
     associatedtype Object: Decodable, Equatable
     
@@ -14,13 +14,13 @@ protocol DecodingTester {
     var optionalFields: [String] { get }
 }
 
-extension DecodingTester {
+extension CodingTester {
     
     var optionalFields: [String] { return [] }
     
 }
 
-extension DecodingTester where Object: JSONPresentable {
+extension CodingTester where Object: JSONPresentable {
     
     var fullJSON: [String: Any] {
         return expectedObject.JSON()
@@ -28,7 +28,7 @@ extension DecodingTester where Object: JSONPresentable {
     
 }
 
-extension DecodingTester {
+extension CodingTester {
     
     func performFullDecodingTest(file: StaticString = #file, line: UInt = #line) {
         let decodedObject = try? JSONDecoder().decode(Object.self, from: fullJSON)
@@ -52,4 +52,14 @@ extension DecodingTester {
         }
     }
 
+}
+
+extension CodingTester where Object: Encodable  {
+    
+    func performFullEncodingTest(file: StaticString = #file, line: UInt = #line) {
+        let expectedJSON = fullJSON as NSDictionary
+        let decodedJSON = try! JSONEncoder().encodeToJSON(expectedObject) as NSDictionary
+        XCTAssertEqual(decodedJSON, expectedJSON, file: file, line: line)
+    }
+    
 }

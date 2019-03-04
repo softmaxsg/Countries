@@ -29,7 +29,7 @@ extension Coordinate {
     
 }
 
-extension Coordinate: Decodable {
+extension Coordinate: Codable {
 
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
@@ -42,6 +42,11 @@ extension Coordinate: Decodable {
         
         latitude = values[0]
         longitude = values[1]
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encode(isValid ? [latitude, longitude] : [])
     }
 
 }

@@ -20,7 +20,7 @@ struct Country: Equatable {
     
 }
 
-extension Country: Decodable {
+extension Country: Codable {
     
     enum CodingKeys: String, CaseIterable, CodingKey {
         

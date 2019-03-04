@@ -5,7 +5,7 @@
 import XCTest
 @testable import Countries
 
-final class NameTranslationsDecodingTests: XCTestCase, DecodingTester {
+final class NameTranslationsDecodingTests: XCTestCase, CodingTester {
     
     let expectedObject: NameTranslations = .random()
     let requiredFields: [String] = []
@@ -14,4 +14,8 @@ final class NameTranslationsDecodingTests: XCTestCase, DecodingTester {
         performFullDecodingTest()
     }
     
+    func testEncoding() {
+        performFullEncodingTest()
+    }
+
 }

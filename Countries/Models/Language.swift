@@ -13,7 +13,7 @@ struct Language: Equatable {
     
 }
 
-extension Language: Decodable {
+extension Language: Codable {
     
     enum CodingKeys: String, CaseIterable, CodingKey {
         
