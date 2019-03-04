@@ -26,7 +26,11 @@ final class DistanceCalculator: DistanceCalculatorProtocol {
             longitude: country.center.longitude
         )
         
-        return coordinateLocation.distance(from: countryCenterLocation)
+        let distance = coordinateLocation.distance(from: countryCenterLocation) / 1000.0
+
+        // Using country radius has to improve distance calculation to large countries
+        let countryRadius = country.areaSize.map { sqrt($0 / Double.pi) } ?? 0
+        return max(distance - countryRadius, 0)
     }
     
 }

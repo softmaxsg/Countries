@@ -63,7 +63,9 @@ extension DistanceCalculatorTests {
             longitude: country.center.longitude
         )
         
-        return coordinateLocation.distance(from: countryCenterLocation)
+        let distance = coordinateLocation.distance(from: countryCenterLocation) / 1000.0
+        let countryRadius = country.areaSize.map { sqrt($0 / Double.pi) } ?? 0
+        return max(distance - countryRadius, 0)
     }
     
 }
