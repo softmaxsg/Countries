@@ -90,6 +90,9 @@
 		D8F6443B222D8C67008111FB /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6443A222D8C67008111FB /* Coordinate.swift */; };
 		D8F6443D222D8CCC008111FB /* Coordinate+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6443C222D8CCC008111FB /* Coordinate+Helpers.swift */; };
 		D8F6443F222D93D5008111FB /* DistanceCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6443E222D93D5008111FB /* DistanceCalculatorTests.swift */; };
+		D8F64441222D974F008111FB /* SortingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64440222D974F008111FB /* SortingService.swift */; };
+		D8F64443222D987E008111FB /* SortingServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64442222D987E008111FB /* SortingServiceTests.swift */; };
+		D8F64445222D98C6008111FB /* DistanceCalculatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64444222D98C6008111FB /* DistanceCalculatorMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +193,9 @@
 		D8F6443A222D8C67008111FB /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		D8F6443C222D8CCC008111FB /* Coordinate+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coordinate+Helpers.swift"; sourceTree = "<group>"; };
 		D8F6443E222D93D5008111FB /* DistanceCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCalculatorTests.swift; sourceTree = "<group>"; };
+		D8F64440222D974F008111FB /* SortingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingService.swift; sourceTree = "<group>"; };
+		D8F64442222D987E008111FB /* SortingServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingServiceTests.swift; sourceTree = "<group>"; };
+		D8F64444222D98C6008111FB /* DistanceCalculatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCalculatorMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +277,7 @@
 				D8F643F922289842008111FB /* FilteringService.swift */,
 				D8F643D622285C02008111FB /* ImageLoader.swift */,
 				D8F64419222C6767008111FB /* LocationProvider.swift */,
+				D8F64440222D974F008111FB /* SortingService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -392,6 +399,7 @@
 				D8F6440322295B09008111FB /* FilteredServiceTests.swift */,
 				D8F643D822285DDB008111FB /* ImageLoaderTests.swift */,
 				D8F6442E222C9FA8008111FB /* LocationProviderTests.swift */,
+				D8F64442222D987E008111FB /* SortingServiceTests.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -404,6 +412,7 @@
 				D8F6442C222C9315008111FB /* CLPlacemarkMock.swift */,
 				D8F643AD22270548008111FB /* CountriesProviderMock.swift */,
 				D8F64432222CA51F008111FB /* CountryGeocoderMock.swift */,
+				D8F64444222D98C6008111FB /* DistanceCalculatorMock.swift */,
 				D8F643E922286FE9008111FB /* ImageLoaderMock.swift */,
 				D8F64434222CA9DB008111FB /* LocationProviderDelegateMock.swift */,
 				D8F643BE22271DD9008111FB /* URLSessionDataTaskMock.swift */,
@@ -584,6 +593,7 @@
 				D8F6441E222C7083008111FB /* CountryGeocoder.swift in Sources */,
 				D8F64422222C71A8008111FB /* CLLocationManagerProtocol.swift in Sources */,
 				D8F64420222C70D0008111FB /* CLGeocoderProtocol.swift in Sources */,
+				D8F64441222D974F008111FB /* SortingService.swift in Sources */,
 				D8F643B4222713DF008111FB /* JSONDecoderProtocol.swift in Sources */,
 				D8F643912226B548008111FB /* Country.swift in Sources */,
 				D8F643A82226F8F7008111FB /* CountriesProvider.swift in Sources */,
@@ -622,6 +632,7 @@
 				D8F64428222C8F1B008111FB /* CLLocation+Random.swift in Sources */,
 				D8F6440422295B09008111FB /* FilteredServiceTests.swift in Sources */,
 				D8F643C122271DD9008111FB /* URLSessionMock.swift in Sources */,
+				D8F64443222D987E008111FB /* SortingServiceTests.swift in Sources */,
 				D8F64437222D79AA008111FB /* Location+Helpers.swift in Sources */,
 				D8F643C522271FFF008111FB /* XCTestCase+URLSessionMock.swift in Sources */,
 				D8F643EA22286FE9008111FB /* ImageLoaderMock.swift in Sources */,
@@ -630,6 +641,7 @@
 				D8F6443F222D93D5008111FB /* DistanceCalculatorTests.swift in Sources */,
 				D8F6443D222D8CCC008111FB /* Coordinate+Helpers.swift in Sources */,
 				D8F6442D222C9315008111FB /* CLPlacemarkMock.swift in Sources */,
+				D8F64445222D98C6008111FB /* DistanceCalculatorMock.swift in Sources */,
 				D8F64410222C49C2008111FB /* NameTranslationsDecodingTests.swift in Sources */,
 				D8F6440C222C493D008111FB /* Dictionary+Helpers.swift in Sources */,
 				D8F643C022271DD9008111FB /* URLSessionDataTaskMock.swift in Sources */,
