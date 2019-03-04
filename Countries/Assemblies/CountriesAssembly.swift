@@ -10,6 +10,8 @@ final class CountriesAssembly {
         return CountryListViewModel(
             delegate: delegate,
             countriesProvider: CountriesProvider(),
+            locationProvider: LocationProvider(),
+            sortingService: SortingService(),
             filteringService: FilteringService()
         )
     }

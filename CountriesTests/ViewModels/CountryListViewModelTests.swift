@@ -40,6 +40,73 @@ final class CountryListViewModelTests: XCTestCase {
             XCTAssertEqual(error as? RandomAccessCollectionError, RandomAccessCollectionError.indexOutOfBounds)
         }
     }
+    
+    func testSorting() {
+        let expectedLocation = Location.random()
+        let expectedCountries = initialCountries.shuffled()
+        let sortingService = SortingServiceMock { countries, coordinate in
+            XCTAssertEqual(coordinate, expectedLocation.coordinate)
+            XCTAssertEqual(countries, self.initialCountries)
+            return expectedCountries
+        }
+        
+        let viewModel = self.viewModel(
+            with: .success(initialCountries),
+            currentLocation: expectedLocation,
+            sortingService: sortingService
+        )
+        
+        compareItems(in: viewModel, with: expectedCountries)
+    }
+    
+    func testFiltering() {
+        let expectedFilteringText = String.random()
+        let expectedCountries = initialCountries.filter { _ in .random() }
+
+        var filteringServiceCalls = 0
+        let filteringService = FilteringServiceMock { countries, text in
+            filteringServiceCalls += 1
+
+            XCTAssertEqual(countries, self.initialCountries)
+
+            switch filteringServiceCalls {
+            case 1:
+                XCTAssertTrue(text.isEmpty)
+                return countries
+                
+            case 2:
+                XCTAssertEqual(text, expectedFilteringText)
+                return expectedCountries
+                
+            default:
+                XCTFail("Called too many times")
+                return []
+            }
+        }
+
+        let viewModel = self.viewModel(
+            with: .success(initialCountries),
+            filteringService: filteringService,
+            actions: { viewModel in
+                viewModel.filteringText = expectedFilteringText
+                return 1
+            }
+        )
+        
+        compareItems(in: viewModel, with: expectedCountries)
+    }
+    
+    func testCurrentCountryIsNotInList() {
+        let expectedLocation = Location.random(countryCode: initialCountries.randomElement()!.countryCode2)
+        let expectedCountries = initialCountries.filter { $0.countryCode2 != expectedLocation.countryCode }
+        
+        let viewModel = self.viewModel(
+            with: .success(initialCountries),
+            currentLocation: expectedLocation
+        )
+        
+        compareItems(in: viewModel, with: expectedCountries)
+    }
 
 }
 
@@ -53,8 +120,14 @@ extension CountryListViewModelTests {
         }
     }
     
-    private func viewModel(with result: Result<[Country]>, file: StaticString = #file, line: UInt = #line) -> CountryListViewModel {
-        let expectation = self.expectation(description: "CountryListViewModel.loadCountries")
+    private func viewModel(with result: Result<[Country]>,
+                           currentLocation: Location? = nil,
+                           sortingService: SortingServiceProtocol = SortingServiceMock.empty,
+                           filteringService: FilteringServiceProtocol = FilteringServiceMock.empty,
+                           actions: ((CountryListViewModel) -> Int)? = nil,
+                           file: StaticString = #file,
+                           line: UInt = #line) -> CountryListViewModel {
+        var expectation = self.expectation(description: "CountryListViewModel.loadCountries")
         
         var viewModel: CountryListViewModel!
         
@@ -68,16 +141,36 @@ extension CountryListViewModelTests {
             }
             expectation.fulfill()
         }
+
+        var locationProvider: LocationProviderMock! = nil
+        locationProvider = LocationProviderMock(
+            startMonitoring: { delegate in
+                if let currentLocation = currentLocation {
+                    delegate.locationProvider(locationProvider, didUpdateLocation: currentLocation)
+                } else {
+                    delegate.locationProvider(locationProvider, didFailWithError: MockError.some)
+                }
+            },
+            stopMonitoring: { }
+        )
         
         viewModel = CountryListViewModel(
             delegate: delegate,
             countriesProvider: provider,
-            filteringService: FilteringService()
+            locationProvider: locationProvider,
+            sortingService: sortingService,
+            filteringService: filteringService
         )
         
         viewModel.loadCountries()
         wait(for: [expectation], timeout: 1)
         
+        if let actions = actions {
+            expectation = self.expectation(description: "CountryListViewModelDelegate.stateDidChange")
+            expectation.expectedFulfillmentCount = actions(viewModel)
+            wait(for: [expectation], timeout: 1)
+        }
+
         return viewModel
     }
 

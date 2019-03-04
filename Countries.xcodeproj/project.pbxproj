@@ -93,6 +93,9 @@
 		D8F64441222D974F008111FB /* SortingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64440222D974F008111FB /* SortingService.swift */; };
 		D8F64443222D987E008111FB /* SortingServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64442222D987E008111FB /* SortingServiceTests.swift */; };
 		D8F64445222D98C6008111FB /* DistanceCalculatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64444222D98C6008111FB /* DistanceCalculatorMock.swift */; };
+		D8F64447222DA6ED008111FB /* LocationProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64446222DA6ED008111FB /* LocationProviderMock.swift */; };
+		D8F64449222DA7B3008111FB /* SortingServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64448222DA7B3008111FB /* SortingServiceMock.swift */; };
+		D8F6444B222DAAB5008111FB /* FilteringServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6444A222DAAB5008111FB /* FilteringServiceMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -196,6 +199,9 @@
 		D8F64440222D974F008111FB /* SortingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingService.swift; sourceTree = "<group>"; };
 		D8F64442222D987E008111FB /* SortingServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingServiceTests.swift; sourceTree = "<group>"; };
 		D8F64444222D98C6008111FB /* DistanceCalculatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCalculatorMock.swift; sourceTree = "<group>"; };
+		D8F64446222DA6ED008111FB /* LocationProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProviderMock.swift; sourceTree = "<group>"; };
+		D8F64448222DA7B3008111FB /* SortingServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingServiceMock.swift; sourceTree = "<group>"; };
+		D8F6444A222DAAB5008111FB /* FilteringServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteringServiceMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -413,8 +419,11 @@
 				D8F643AD22270548008111FB /* CountriesProviderMock.swift */,
 				D8F64432222CA51F008111FB /* CountryGeocoderMock.swift */,
 				D8F64444222D98C6008111FB /* DistanceCalculatorMock.swift */,
+				D8F6444A222DAAB5008111FB /* FilteringServiceMock.swift */,
 				D8F643E922286FE9008111FB /* ImageLoaderMock.swift */,
 				D8F64434222CA9DB008111FB /* LocationProviderDelegateMock.swift */,
+				D8F64446222DA6ED008111FB /* LocationProviderMock.swift */,
+				D8F64448222DA7B3008111FB /* SortingServiceMock.swift */,
 				D8F643BE22271DD9008111FB /* URLSessionDataTaskMock.swift */,
 				D8F643BF22271DD9008111FB /* URLSessionMock.swift */,
 				D8F643C422271FFF008111FB /* XCTestCase+URLSessionMock.swift */,
@@ -630,6 +639,7 @@
 				D8F64431222CA20D008111FB /* CLLocationManagerMock.swift in Sources */,
 				D8F6440A222C4905008111FB /* DecodingTester.swift in Sources */,
 				D8F64428222C8F1B008111FB /* CLLocation+Random.swift in Sources */,
+				D8F6444B222DAAB5008111FB /* FilteringServiceMock.swift in Sources */,
 				D8F6440422295B09008111FB /* FilteredServiceTests.swift in Sources */,
 				D8F643C122271DD9008111FB /* URLSessionMock.swift in Sources */,
 				D8F64443222D987E008111FB /* SortingServiceTests.swift in Sources */,
@@ -647,6 +657,7 @@
 				D8F643C022271DD9008111FB /* URLSessionDataTaskMock.swift in Sources */,
 				D8F643BD22271889008111FB /* CountriesProviderTests.swift in Sources */,
 				D8F643B022270AD0008111FB /* CountryListViewModelDelegateMock.swift in Sources */,
+				D8F64447222DA6ED008111FB /* LocationProviderMock.swift in Sources */,
 				D8F643E522286F96008111FB /* XCTestCase+Snapshots.swift in Sources */,
 				D8F64408222BD64A008111FB /* Array+Random.swift in Sources */,
 				D8F6442F222C9FA8008111FB /* LocationProviderTests.swift in Sources */,
@@ -664,6 +675,7 @@
 				D8F643E822286F96008111FB /* XCTestCase+UINib.swift in Sources */,
 				D8F64406222BD2D2008111FB /* RangeReplaceableCollection+Helpers.swift in Sources */,
 				D8F64414222C4D3A008111FB /* CountryDecodingTests.swift in Sources */,
+				D8F64449222DA7B3008111FB /* SortingServiceMock.swift in Sources */,
 				D8F64412222C4AB0008111FB /* LanguageDecodingTests.swift in Sources */,
 				D8F64424222C8D37008111FB /* CountryGeocoderTests.swift in Sources */,
 				D8F6439D2226EA2C008111FB /* Country+Helpers.swift in Sources */,

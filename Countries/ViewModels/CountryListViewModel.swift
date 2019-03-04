@@ -24,17 +24,24 @@ final class CountryListViewModel: CountryListViewModelProtocol {
     private weak var delegate: CountryListViewModelDelegate?
     
     private let countriesProvider: CountriesProviderProtocol
+    private let locationProvider: LocationProviderProtocol
+    private let sortingService: SortingServiceProtocol
     private let filteringService: FilteringServiceProtocol
 
     private let operationQueue = OperationQueue()
-    private var countries: [Country] = [] { didSet { updateItems() } }
+    private var currentLocation: Result<Location>? = nil { didSet { updateItems() } }
+    private var countries: [Country]? = nil { didSet { updateItems() } }
     private var items: [CountryListItemViewModelProtocol] = []
 
     init(delegate: CountryListViewModelDelegate,
          countriesProvider: CountriesProviderProtocol,
+         locationProvider: LocationProviderProtocol,
+         sortingService: SortingServiceProtocol,
          filteringService: FilteringServiceProtocol) {
         self.delegate = delegate
         self.countriesProvider = countriesProvider
+        self.locationProvider = locationProvider
+        self.sortingService = sortingService
         self.filteringService = filteringService
     }
     
@@ -48,6 +55,9 @@ final class CountryListViewModel: CountryListViewModelProtocol {
     
     func loadCountries() {
         currentState = .loading
+        
+        locationProvider.startMonitoring(delegate: self)
+        
         countriesProvider.loadAll { [weak self] result in
             self?.operationQueue.addOperation {
                 switch result {
@@ -63,10 +73,31 @@ final class CountryListViewModel: CountryListViewModelProtocol {
 
 }
 
+extension CountryListViewModel: LocationProviderDelegate {
+    
+    func locationProvider(_ provider: LocationProviderProtocol, didUpdateLocation location: Location) {
+        currentLocation = .success(location)
+    }
+    
+    func locationProvider(_ provider: LocationProviderProtocol, didFailWithError error: Error) {
+        currentLocation = .failure(error)
+    }
+    
+}
+
 extension CountryListViewModel {
     
     private func updateItems() {
-        let countries = filteringService.filtered(self.countries, using: filteringText)
+        guard let currentLocation = currentLocation, var countries = countries else { return }
+        
+        // Remove current country from the list
+        countries.removeAll { $0.countryCode2.lowercased() == currentLocation.value?.countryCode?.lowercased() }
+        
+        countries = filteringService.filtered(countries, using: filteringText)
+        if let currentCoordinate = currentLocation.value?.coordinate {
+            countries = sortingService.sorted(countries, coordinate: currentCoordinate)
+        }
+        
         let items = countries.map(CountryListItemViewModel.init)
         
         OperationQueue.main.addOperation {
