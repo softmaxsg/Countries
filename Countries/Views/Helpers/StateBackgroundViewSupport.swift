@@ -31,7 +31,13 @@ extension StateBackgroundViewSupport {
     
 }
 
-extension StateBackgroundViewSupport where Self: UITableViewController {
+protocol TableViewContainer {
+    
+    var tableView: UITableView! { get }
+    
+}
+
+extension StateBackgroundViewSupport where Self: TableViewContainer {
     
     func setStateBackgroundView(in tableView: UITableView) -> UIView? {
         tableView.backgroundView = configureStateBackgroundView()
