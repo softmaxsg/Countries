@@ -4,13 +4,7 @@
 
 import Foundation
 
-protocol CountryListItemViewModelProtocol {
-
-    var name: String { get }
-    var population: String { get }
-    var areaSize: String { get }
-    var flagUrl: URL { get }
-
+protocol CountryListItemViewModelProtocol: CountryBriefDetails {
 }
 
 final class CountryListItemViewModel: CountryListItemViewModelProtocol {

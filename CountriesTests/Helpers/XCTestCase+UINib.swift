@@ -3,13 +3,13 @@
 //
 
 import XCTest
+@testable import Countries
 
 extension XCTestCase {
 
     func view<T>(nibName: String, size: CGSize? = nil) -> T where T: UIView {
         let bundle = Bundle(for: T.self)
-        let nib = UINib(nibName: nibName, bundle: bundle)
-        let view = nib.instantiate(withOwner: nil).compactMap({ $0 as? T }).first!
+        let view = T.load(nibName: nibName, bundle: bundle) as! T
         
         if let size = size {
             let bounds = CGRect(origin: .zero, size: size)

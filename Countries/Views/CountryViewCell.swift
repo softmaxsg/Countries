@@ -4,34 +4,37 @@
 
 import UIKit
 
-final class CountryViewCell: UITableViewCell, ImageContainerView {
+final class CountryViewCell: UITableViewCell {
     
-    private lazy var placeholderImage = UIImage(named: "FlagPlaceholder")!
-
-    @IBOutlet weak var countryFlagImage: UIImageView?
-    @IBOutlet weak var nameLabel: UILabel?
-    @IBOutlet weak var populationLabel: UILabel?
-    @IBOutlet weak var areaSizeLabel: UILabel?
-    @IBOutlet weak var areaSizeWrapper: UIView?
-
-    var imageLoader: ImageLoaderProtocol = DependencyContainer.shared.imageLoader
-    var currentImageLoaderTask: Cancellable?
+    let briefCountryView: CountryBriefView?
     
-    // ImageContainerView works with `imageView` property
-    override var imageView: UIImageView? { return countryFlagImage }
-
-    func configure(with viewModel: CountryListItemViewModelProtocol) {
-        nameLabel?.text = viewModel.name
-        populationLabel?.text = viewModel.population
-        areaSizeLabel?.text = viewModel.areaSize
-        areaSizeWrapper?.isHidden = viewModel.areaSize.isEmpty
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        briefCountryView = CountryBriefView.load(
+            nibName: "CountryBriefView",
+            bundle: Bundle(for: CountryBriefView.self)
+        )
         
-        displayImage(with: viewModel.flagUrl, placeholder: placeholderImage)
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        if let briefCountryView = briefCountryView {
+            contentView.addSubview(briefCountryView)
+            briefCountryView.edges(equalTo: contentView, insets: UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16))
+        } else {
+            assertionFailure()
+        }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(with viewModel: CountryListItemViewModelProtocol) {
+        briefCountryView?.configure(with: viewModel)
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.cancelImageLoading()
+        briefCountryView?.cancelImageLoading()
     }
     
 }
@@ -39,11 +42,7 @@ final class CountryViewCell: UITableViewCell, ImageContainerView {
 extension CountryViewCell {
     
     class func register(in tableView: UITableView, with identifier: String) {
-        tableView.register(
-            UINib(nibName: "CountryViewCell", bundle: nil),
-            forCellReuseIdentifier: identifier
-        )
+        tableView.register(CountryViewCell.self, forCellReuseIdentifier: identifier)
     }
     
 }
-

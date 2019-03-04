@@ -18,8 +18,8 @@ final class CountryViewCellTests: XCTestCase {
     }
     
     private lazy var cell: CountryViewCell = {
-        let cell = view(nibName: "CountryViewCell") as CountryViewCell
-        cell.imageLoader = imageLoaderMock
+        let cell = CountryViewCell()
+        cell.briefCountryView?.imageLoader = imageLoaderMock
         return cell
     }()
     
