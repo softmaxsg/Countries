@@ -86,6 +86,8 @@
 		D8F64433222CA51F008111FB /* CountryGeocoderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64432222CA51F008111FB /* CountryGeocoderMock.swift */; };
 		D8F64435222CA9DB008111FB /* LocationProviderDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64434222CA9DB008111FB /* LocationProviderDelegateMock.swift */; };
 		D8F64437222D79AA008111FB /* Location+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64436222D79AA008111FB /* Location+Helpers.swift */; };
+		D8F6443B222D8C67008111FB /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6443A222D8C67008111FB /* Coordinate.swift */; };
+		D8F6443D222D8CCC008111FB /* Coordinate+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6443C222D8CCC008111FB /* Coordinate+Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -182,6 +184,8 @@
 		D8F64432222CA51F008111FB /* CountryGeocoderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryGeocoderMock.swift; sourceTree = "<group>"; };
 		D8F64434222CA9DB008111FB /* LocationProviderDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProviderDelegateMock.swift; sourceTree = "<group>"; };
 		D8F64436222D79AA008111FB /* Location+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+Helpers.swift"; sourceTree = "<group>"; };
+		D8F6443A222D8C67008111FB /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
+		D8F6443C222D8CCC008111FB /* Coordinate+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coordinate+Helpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +273,7 @@
 		D8F643802225FD5C008111FB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D8F6443A222D8C67008111FB /* Coordinate.swift */,
 				D8F643902226B548008111FB /* Country.swift */,
 				D8F643FB22289C3D008111FB /* Language.swift */,
 				D8F6441B222C7028008111FB /* Location.swift */,
@@ -358,6 +363,7 @@
 				D8F6440122295640008111FB /* Language+Helpers.swift */,
 				D8F64436222D79AA008111FB /* Location+Helpers.swift */,
 				D8F643FF222954D2008111FB /* NameTranslations+Helpers.swift */,
+				D8F6443C222D8CCC008111FB /* Coordinate+Helpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -567,6 +573,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8F643B8222713F4008111FB /* URLSessionProtocol.swift in Sources */,
+				D8F6443B222D8C67008111FB /* Coordinate.swift in Sources */,
 				D8F6441E222C7083008111FB /* CountryGeocoder.swift in Sources */,
 				D8F64422222C71A8008111FB /* CLLocationManagerProtocol.swift in Sources */,
 				D8F64420222C70D0008111FB /* CLGeocoderProtocol.swift in Sources */,
@@ -613,6 +620,7 @@
 				D8F643EA22286FE9008111FB /* ImageLoaderMock.swift in Sources */,
 				D8F643A02226EB64008111FB /* CountryListItemViewModel+Helpers.swift in Sources */,
 				D8F643E722286F96008111FB /* UIImage+Helpers.swift in Sources */,
+				D8F6443D222D8CCC008111FB /* Coordinate+Helpers.swift in Sources */,
 				D8F6442D222C9315008111FB /* CLPlacemarkMock.swift in Sources */,
 				D8F64410222C49C2008111FB /* NameTranslationsDecodingTests.swift in Sources */,
 				D8F6440C222C493D008111FB /* Dictionary+Helpers.swift in Sources */,

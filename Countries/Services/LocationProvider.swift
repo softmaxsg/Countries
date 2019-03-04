@@ -115,7 +115,7 @@ extension LocationProvider: CLLocationManagerDelegate {
 
         countryGeocoder.country(at: location) { result in
             let locationDetails = Location(
-                coordinate: Location.Coordinate(location.coordinate),
+                coordinate: Coordinate(location.coordinate),
                 countryCode: result.value
             )
             
