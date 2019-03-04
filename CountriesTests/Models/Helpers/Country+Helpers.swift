@@ -16,7 +16,8 @@ extension Country {
                        capital: String = .random(),
                        languages: [Language] = .random(maxCount: 5) { .random() },
                        population: UInt64 = .random(in: 1..<10_000_000_000),
-                       areaSize: Double? = .random(in: 1..<100_000_000)) -> Country {
+                       areaSize: Double? = .random(in: 1..<100_000_000),
+                       center: Coordinate = .random()) -> Country {
         return Country(
             countryCode2: countryCode2,
             countryCode3: countryCode3,
@@ -27,7 +28,8 @@ extension Country {
             capital: capital,
             languages: languages,
             population: population,
-            areaSize: areaSize
+            areaSize: areaSize,
+            center: center
         )
     }
     
@@ -47,6 +49,7 @@ extension Country: JSONPresentable {
             "languages": languages.map { $0.JSON() },
             "population": population,
             "area": areaSize as Any,
+            "latlng": [center.latitude, center.longitude],
         ]
     }
     

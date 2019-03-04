@@ -13,8 +13,8 @@ struct NameTranslations: Equatable {
 extension NameTranslations: Decodable {
 
     init(from decoder: Decoder) throws {
-        let values = try decoder.singleValueContainer()
-        translations = try values.decode([String: String?].self)
+        let container = try decoder.singleValueContainer()
+        translations = try container.decode([String: String?].self)
             .filter { _, value in value != nil }
             .mapValues { $0! }
     }

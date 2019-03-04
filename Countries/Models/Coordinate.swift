@@ -9,6 +9,14 @@ struct Coordinate: Equatable {
     
     let latitude: Double
     let longitude: Double
+
+}
+
+extension Coordinate {
+    
+    var isValid: Bool {
+        return (-180.0...180.0).contains(latitude) && (-180.0...180.0).contains(longitude)
+    }
     
 }
 
@@ -19,4 +27,21 @@ extension Coordinate {
         longitude = coordinate.longitude
     }
     
+}
+
+extension Coordinate: Decodable {
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let values = try container.decode([Double].self)
+        guard values.count == 2 else {
+            latitude = .greatestFiniteMagnitude
+            longitude = .greatestFiniteMagnitude
+            return
+        }
+        
+        latitude = values[0]
+        longitude = values[1]
+    }
+
 }

@@ -16,6 +16,7 @@ struct Country: Equatable {
     let languages: [Language]
     let population: UInt64
     let areaSize: Double?
+    let center: Coordinate
     
 }
 
@@ -33,6 +34,7 @@ extension Country: Decodable {
         case languages
         case population
         case areaSize = "area"
+        case center = "latlng"
 
     }
     
