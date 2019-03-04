@@ -29,8 +29,10 @@ final class CountryListViewModel: CountryListViewModelProtocol {
     private let filteringService: FilteringServiceProtocol
 
     private let operationQueue = OperationQueue()
-    private var currentLocation: Result<Location>? = nil { didSet { updateItems() } }
-    private var countries: [Country]? = nil { didSet { updateItems() } }
+    private var currentLocation: Result<Location>? = nil { didSet { sortCountries() } }
+    private var countries: [Country]? = nil { didSet { sortCountries() } }
+    // Helps improving performance by sorting only on changing the location or countries list
+    private var sortedCountries: [Country]? = nil { didSet { updateItems() } }
     private var items: [CountryListItemViewModelProtocol] = []
 
     init(delegate: CountryListViewModelDelegate,
@@ -87,18 +89,25 @@ extension CountryListViewModel: LocationProviderDelegate {
 
 extension CountryListViewModel {
     
-    private func updateItems() {
+    private func sortCountries() {
         guard let currentLocation = currentLocation, var countries = countries else { return }
-        
+
         // Remove current country from the list
         countries.removeAll { $0.countryCode2.lowercased() == currentLocation.value?.countryCode?.lowercased() }
-        
-        countries = filteringService.filtered(countries, using: filteringText)
+
         if let currentCoordinate = currentLocation.value?.coordinate {
             countries = sortingService.sorted(countries, coordinate: currentCoordinate)
         }
+
+        sortedCountries = countries
+    }
+    
+    private func updateItems() {
+        guard let _ = currentLocation, let sortedCountries = sortedCountries else { return }
         
-        let items = countries.map(CountryListItemViewModel.init)
+        let items = filteringService
+            .filtered(sortedCountries, using: filteringText)
+            .map(CountryListItemViewModel.init)
         
         OperationQueue.main.addOperation {
             self.items = items
