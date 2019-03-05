@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CountryDetailsView" customModule="Countries" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="192"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eqB-3O-4oS">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="192"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Oil-oK-Wfo">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="192"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="mni-f5-QRu">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Capital:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLb-tN-KnU">
+                                            <rect key="frame" x="0.0" y="0.0" width="58" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Capital Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5H-XA-UF6">
+                                            <rect key="frame" x="62" y="0.0" width="313" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="OQp-fq-d77">
+                                    <rect key="frame" x="0.0" y="24.5" width="375" height="20.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Region:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bD4-lE-2c8">
+                                            <rect key="frame" x="0.0" y="0.0" width="57.5" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Region Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nb0-aO-Dec">
+                                            <rect key="frame" x="61.5" y="0.0" width="313.5" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="pUe-oX-ji4">
+                                    <rect key="frame" x="0.0" y="49" width="375" height="45"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Regional Blocs:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9e-Yc-zyT">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Regional Blocs Names" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uoM-Vx-yAk">
+                                            <rect key="frame" x="0.0" y="24.5" width="375" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="T6p-ch-ZXL">
+                                    <rect key="frame" x="0.0" y="98" width="375" height="45"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Languages:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXw-60-Jvr">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Lanuages Names" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egX-LX-ygx">
+                                            <rect key="frame" x="0.0" y="24.5" width="375" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="rWu-V8-t9v">
+                                    <rect key="frame" x="0.0" y="147" width="375" height="45"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currencies:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izf-Hd-mYA">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Currencies List" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drb-s1-I5A">
+                                            <rect key="frame" x="0.0" y="24.5" width="375" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="eqB-3O-4oS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="TIJ-N8-NzA"/>
+                <constraint firstAttribute="trailing" secondItem="eqB-3O-4oS" secondAttribute="trailing" id="bbT-C9-WRT"/>
+                <constraint firstItem="eqB-3O-4oS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nHG-qA-was"/>
+                <constraint firstAttribute="bottom" secondItem="eqB-3O-4oS" secondAttribute="bottom" id="nPu-d1-Q44"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="advancedDetailsWrapper" destination="Oil-oK-Wfo" id="wBj-Iq-5Hw"/>
+                <outlet property="briefDetailsWrapper" destination="eqB-3O-4oS" id="3ro-yH-Jv4"/>
+                <outlet property="capitalLabel" destination="X5H-XA-UF6" id="nLo-9K-w1v"/>
+                <outlet property="capitalWrapper" destination="mni-f5-QRu" id="C5l-1R-VXA"/>
+                <outlet property="currenciesLabel" destination="drb-s1-I5A" id="t5d-U9-ly5"/>
+                <outlet property="currenciesWrapper" destination="rWu-V8-t9v" id="J7l-KG-CyP"/>
+                <outlet property="languagesLabel" destination="egX-LX-ygx" id="P05-Wj-yHh"/>
+                <outlet property="languagesWrapper" destination="T6p-ch-ZXL" id="VKA-dd-Ipw"/>
+                <outlet property="regionLabel" destination="Nb0-aO-Dec" id="eEp-MH-p0c"/>
+                <outlet property="regionWrapper" destination="OQp-fq-d77" id="J0D-Ja-56W"/>
+                <outlet property="regionalBlocsLabel" destination="uoM-Vx-yAk" id="l2D-lf-5WM"/>
+                <outlet property="regionalBlocsWrapper" destination="pUe-oX-ji4" id="meg-0b-Xhl"/>
+            </connections>
+            <point key="canvasLocation" x="138.40000000000001" y="153.82308845577214"/>
+        </view>
+    </objects>
+</document>

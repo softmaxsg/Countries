@@ -5,17 +5,7 @@
 import XCTest
 @testable import Countries
 
-final class CountryViewCellTests: XCTestCase {
-    
-    private let defaultWidth: CGFloat = 350
-    
-    private let expectedImageURL = URL(string: "https://flagpedia.net/data/flags/small/aa.png")!
-    private let expectedImage = UIImage.image(size: CGSize(width: 133, height: 80), color: .cyan)
-    
-    private lazy var imageLoaderMock = ImageLoaderMock { url, _, completion in
-        completion(url, url == self.expectedImageURL ? self.expectedImage : nil)
-        return EmptyTask()
-    }
+final class CountryViewCellTests: CountryDetailsViewTestCase {
     
     private lazy var cell: CountryViewCell = {
         let cell = CountryViewCell()
@@ -26,11 +16,11 @@ final class CountryViewCellTests: XCTestCase {
     func testNormalAppearance() {
         let cell = self.cell
         cell.configure(with: CountryListItemViewModel(country: .random(
-            countryCode2: "AA",
-            name: "Country Name",
-            nativeName: "Country Native Name",
-            population: 7_654_321,
-            areaSize: 123_456
+            countryCode2: countryCode,
+            name: countryName,
+            nativeName: countryNativeName,
+            population: countryPopulation,
+            areaSize: countryAreaSize
         )))
         
         adjustSize(for: cell)
@@ -40,10 +30,10 @@ final class CountryViewCellTests: XCTestCase {
     func testNoAreaSizeAppearance() {
         let cell = self.cell
         cell.configure(with: CountryListItemViewModel(country: .random(
-            countryCode2: "AA",
-            name: "Country Name",
-            nativeName: "Country Native Name",
-            population: 7_654_321,
+            countryCode2: countryCode,
+            name: countryName,
+            nativeName: countryNativeName,
+            population: countryPopulation,
             areaSize: nil
         )))
         
@@ -51,18 +41,4 @@ final class CountryViewCellTests: XCTestCase {
         snapshotVerifyView(cell)
     }
 
-}
-
-extension CountryViewCellTests {
-    
-    func adjustSize(for view: UIView) {
-        let height = view.systemLayoutSizeFitting(
-            CGSize(width: defaultWidth, height: 0),
-            withHorizontalFittingPriority: .required,
-            verticalFittingPriority: .fittingSizeLevel
-            ).height
-        
-        cell.frame = CGRect(x: 0, y: 0, width: defaultWidth, height: height)
-    }
-    
 }
