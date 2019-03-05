@@ -9,7 +9,7 @@ protocol CountryListItemViewModelProtocol: CountryBriefDetailsProtocol {
 
 final class CountryListItemViewModel: CountryListItemViewModelProtocol {
 
-    private let briefDetails: CountryBriefDetails
+    private let briefDetails: CountryBriefDetailsViewModel
     
     var name: String { return briefDetails.name }
     var population: String { return briefDetails.population }
@@ -17,7 +17,7 @@ final class CountryListItemViewModel: CountryListItemViewModelProtocol {
     var flagUrl: URL { return briefDetails.flagUrl }
     
     init(country: Country) {
-        briefDetails = CountryBriefDetails(country: country)
+        briefDetails = CountryBriefDetailsViewModel(country: country)
     }
     
 }

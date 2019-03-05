@@ -5,7 +5,7 @@
 import Foundation
 @testable import Countries
 
-extension CountryListItemViewModelProtocol {
+extension CountryBriefDetailsProtocol {
     
     func isEqual(to country: Country) -> Bool {
         guard name == country.name else { return false }
@@ -17,7 +17,7 @@ extension CountryListItemViewModelProtocol {
         
         let expectedPopulation = formatter.string(from: NSNumber(value: country.population))!
         guard population == expectedPopulation else { return false }
-
+        
         let expectedAreaSize = country.areaSize.flatMap { "\(formatter.string(from: NSNumber(value: $0))!) km\u{B2}" } ?? ""
         guard areaSize == expectedAreaSize else { return false }
         
@@ -26,7 +26,7 @@ extension CountryListItemViewModelProtocol {
     
 }
 
-extension CountryListItemViewModelProtocol {
+extension CountryBriefDetailsProtocol {
     
     private func numberFormatter() -> NumberFormatter {
         let formatter = NumberFormatter()
@@ -35,5 +35,5 @@ extension CountryListItemViewModelProtocol {
         formatter.usesGroupingSeparator = true
         return formatter
     }
-
+    
 }

@@ -13,7 +13,7 @@ protocol CountryBriefDetailsProtocol {
     
 }
 
-final class CountryBriefDetails: CountryBriefDetailsProtocol {
+final class CountryBriefDetailsViewModel: CountryBriefDetailsProtocol {
     
     let name: String
     let population: String
@@ -24,14 +24,14 @@ final class CountryBriefDetails: CountryBriefDetailsProtocol {
         name = country.name
         flagUrl = URL(string: String(format: Constants.countryFlagUrlTemplate, country.countryCode2.lowercased()))!
         
-        let formatter = CountryBriefDetails.numberFormatter()
+        let formatter = CountryBriefDetailsViewModel.numberFormatter()
         population = formatter.string(from: NSNumber(value: country.population))!
         areaSize = country.areaSize.flatMap { "\(formatter.string(from: NSNumber(value: $0))!) km\u{B2}" } ?? ""
     }
     
 }
 
-extension CountryBriefDetails {
+extension CountryBriefDetailsViewModel {
     
     private class func numberFormatter() -> NumberFormatter {
         let formatter = NumberFormatter()
