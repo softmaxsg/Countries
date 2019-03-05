@@ -14,6 +14,9 @@ struct Country: Equatable {
     let nameTranslations: NameTranslations
     let capital: String
     let languages: [Language]
+    let currencies: [Currency]
+    let region: String
+    let regionalBlocs: [RegionalBloc]
     let population: UInt64
     let areaSize: Double?
     let center: Coordinate
@@ -32,6 +35,9 @@ extension Country: Codable {
         case nameTranslations = "translations"
         case capital
         case languages
+        case currencies
+        case region
+        case regionalBlocs
         case population
         case areaSize = "area"
         case center = "latlng"
