@@ -4,7 +4,7 @@
 
 import UIKit
 
-final class CountryBriefView: UIView, ImageContainerView {
+final class CountryBriefDetailsView: UIView, ImageContainerView {
     
     private lazy var placeholderImage = UIImage(named: "FlagPlaceholder")!
     
@@ -20,7 +20,7 @@ final class CountryBriefView: UIView, ImageContainerView {
     // ImageContainerView works with `imageView` property
     var imageView: UIImageView? { return countryFlagImage }
     
-    func configure(with details: CountryBriefDetails) {
+    func configure(with details: CountryBriefDetailsProtocol) {
         nameLabel?.text = details.name
         populationLabel?.text = details.population
         areaSizeLabel?.text = details.areaSize

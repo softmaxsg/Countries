@@ -6,14 +6,10 @@ import UIKit
 
 final class CountryViewCell: UITableViewCell {
     
-    let briefCountryView: CountryBriefView?
+    let briefCountryView: CountryBriefDetailsView?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        briefCountryView = CountryBriefView.load(
-            nibName: "CountryBriefView",
-            bundle: Bundle(for: CountryBriefView.self)
-        )
-        
+        briefCountryView = CountryBriefDetailsView.load()
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         if let briefCountryView = briefCountryView {

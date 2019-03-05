@@ -4,35 +4,20 @@
 
 import Foundation
 
-protocol CountryListItemViewModelProtocol: CountryBriefDetails {
+protocol CountryListItemViewModelProtocol: CountryBriefDetailsProtocol {
 }
 
 final class CountryListItemViewModel: CountryListItemViewModelProtocol {
 
-    let name: String
-    let population: String
-    let areaSize: String
-    let flagUrl: URL
+    private let briefDetails: CountryBriefDetails
+    
+    var name: String { return briefDetails.name }
+    var population: String { return briefDetails.population }
+    var areaSize: String { return briefDetails.areaSize }
+    var flagUrl: URL { return briefDetails.flagUrl }
     
     init(country: Country) {
-        name = country.name
-        flagUrl = URL(string: String(format: Constants.countryFlagUrlTemplate, country.countryCode2.lowercased()))!
-        
-        let formatter = CountryListItemViewModel.numberFormatter()
-        population = formatter.string(from: NSNumber(value: country.population))!
-        areaSize = country.areaSize.flatMap { "\(formatter.string(from: NSNumber(value: $0))!) km\u{B2}" } ?? ""
-    }
-    
-}
-
-extension CountryListItemViewModel {
-    
-    private class func numberFormatter() -> NumberFormatter {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.maximumFractionDigits = 0
-        formatter.usesGroupingSeparator = true
-        return formatter
+        briefDetails = CountryBriefDetails(country: country)
     }
     
 }
