@@ -12,7 +12,8 @@ final class CountriesAssembly {
             countriesProvider: CountriesProvider(),
             locationProvider: LocationProvider(),
             sortingService: SortingService(),
-            filteringService: FilteringService()
+            filteringService: FilteringService(),
+            countryStorageService: CountryStorageService()
         )
     }
     

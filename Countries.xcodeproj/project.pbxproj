@@ -135,6 +135,7 @@
 		D8F6451222305B23008111FB /* UserDefaultsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6451122305B23008111FB /* UserDefaultsMock.swift */; };
 		D8F6451422305F2A008111FB /* CountryStorageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6451322305F2A008111FB /* CountryStorageServiceTests.swift */; };
 		D8F64518223062DE008111FB /* Data+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64517223062DE008111FB /* Data+Random.swift */; };
+		D8F6451A22306AB3008111FB /* CountryStorageServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6451922306AB3008111FB /* CountryStorageServiceMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -280,6 +281,7 @@
 		D8F6451122305B23008111FB /* UserDefaultsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsMock.swift; sourceTree = "<group>"; };
 		D8F6451322305F2A008111FB /* CountryStorageServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryStorageServiceTests.swift; sourceTree = "<group>"; };
 		D8F64517223062DE008111FB /* Data+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Random.swift"; sourceTree = "<group>"; };
+		D8F6451922306AB3008111FB /* CountryStorageServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryStorageServiceMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -512,6 +514,7 @@
 				D8F6442C222C9315008111FB /* CLPlacemarkMock.swift */,
 				D8F643AD22270548008111FB /* CountriesProviderMock.swift */,
 				D8F64432222CA51F008111FB /* CountryGeocoderMock.swift */,
+				D8F6451922306AB3008111FB /* CountryStorageServiceMock.swift */,
 				D8F64444222D98C6008111FB /* DistanceCalculatorMock.swift */,
 				D8F6444A222DAAB5008111FB /* FilteringServiceMock.swift */,
 				D8F643E922286FE9008111FB /* ImageLoaderMock.swift */,
@@ -798,6 +801,7 @@
 				D8F643C122271DD9008111FB /* URLSessionMock.swift in Sources */,
 				D8F64443222D987E008111FB /* SortingServiceTests.swift in Sources */,
 				D8F644A1222F2D5D008111FB /* CurrentCountryViewModelDelegateMock.swift in Sources */,
+				D8F6451A22306AB3008111FB /* CountryStorageServiceMock.swift in Sources */,
 				D8F64437222D79AA008111FB /* Location+Helpers.swift in Sources */,
 				D8F643C522271FFF008111FB /* XCTestCase+URLSessionMock.swift in Sources */,
 				D8F643EA22286FE9008111FB /* ImageLoaderMock.swift in Sources */,

@@ -29,9 +29,11 @@ final class CountryListViewModel: CountryListViewModelProtocol {
     private let locationProvider: LocationProviderProtocol
     private let sortingService: SortingServiceProtocol
     private let filteringService: FilteringServiceProtocol
+    private let countryStorageService: CountryStorageServiceProtocol
 
     private let operationQueue = OperationQueue()
     private var currentLocation: Result<Location>? = nil { didSet { processCountries() } }
+    private var currentCountry: Country? = nil { didSet { delegate?.currentCountryDidChange() } }
     private var countries: [Country]? = nil { didSet { processCountries() } }
     // Helps improving performance by sorting only on changing the location or countries list
     private var sortedCountries: [Country]? = nil { didSet { updateItems() } }
@@ -41,12 +43,14 @@ final class CountryListViewModel: CountryListViewModelProtocol {
          countriesProvider: CountriesProviderProtocol,
          locationProvider: LocationProviderProtocol,
          sortingService: SortingServiceProtocol,
-         filteringService: FilteringServiceProtocol) {
+         filteringService: FilteringServiceProtocol,
+         countryStorageService: CountryStorageServiceProtocol) {
         self.delegate = delegate
         self.countriesProvider = countriesProvider
         self.locationProvider = locationProvider
         self.sortingService = sortingService
         self.filteringService = filteringService
+        self.countryStorageService = countryStorageService
     }
     
     var filteringText: String = "" { didSet { updateItems() } }
@@ -76,11 +80,7 @@ final class CountryListViewModel: CountryListViewModelProtocol {
     }
     
     func currentCountry(delegate: CurrentCountryViewModelDelegate) -> CurrentCountryViewModelProtocol? {
-        guard let currentLocation = currentLocation, let countries = countries else { return nil }
-        
-        return countries
-            .first { $0.countryCode2.lowercased() == currentLocation.value?.countryCode?.lowercased() }
-            .map { CurrentCountryViewModel(delegate: delegate, country: $0) }
+        return currentCountry.map { CurrentCountryViewModel(delegate: delegate, country: $0) }
     }
 
 }
@@ -102,18 +102,21 @@ extension CountryListViewModel {
     private func processCountries() {
         guard let currentLocation = currentLocation, var countries = countries else { return }
 
-        OperationQueue.main.addOperation {
-            self.delegate?.currentCountryDidChange()
-        }
+        let currentCountry = countries.first { $0.countryCode2.lowercased() == currentLocation.value?.countryCode?.lowercased() }
+        countryStorageService.saveCountry(currentCountry)
 
         // Remove current country from the list
-        countries.removeAll { $0.countryCode2.lowercased() == currentLocation.value?.countryCode?.lowercased() }
+        countries.removeAll { $0.countryCode2 == currentCountry?.countryCode2 }
 
         if let currentCoordinate = currentLocation.value?.coordinate {
             countries = sortingService.sorted(countries, coordinate: currentCoordinate)
         }
 
         sortedCountries = countries
+        
+        OperationQueue.main.addOperation {
+            self.currentCountry = currentCountry
+        }
     }
     
     private func updateItems() {

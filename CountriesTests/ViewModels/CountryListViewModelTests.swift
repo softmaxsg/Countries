@@ -110,6 +110,8 @@ final class CountryListViewModelTests: XCTestCase {
     
     func testCurrentCountry() {
         let currentCountryDidChangeExpectation = self.expectation(description: "CountryListViewModelDelegate.currentCountryDidChange")
+        let currentCountryDidSaveExpectation = self.expectation(description: "CountryStorageService.saveCountry")
+
         let delegate = CountryListViewModelDelegateMock(
             stateDidChange: { },
             currentCountryDidChange: {
@@ -121,13 +123,22 @@ final class CountryListViewModelTests: XCTestCase {
         let expectedCountry = initialCountries.randomElement()!
         let expectedLocation = Location.random(countryCode: expectedCountry.countryCode2)
         
+        let countryStorageService = CountryStorageServiceMock(
+            loadCountry: { return nil },
+            saveCountry: { country in
+                XCTAssertEqual(country, expectedCountry)
+                currentCountryDidSaveExpectation.fulfill()
+            }
+        )
+
         let viewModel = self.viewModel(
             with: .success(initialCountries),
             delegate: delegate,
-            currentLocation: expectedLocation
+            currentLocation: expectedLocation,
+            countryStorageService: countryStorageService
         )
         
-        wait(for: [currentCountryDidChangeExpectation], timeout: 1)
+        wait(for: [currentCountryDidChangeExpectation, currentCountryDidSaveExpectation], timeout: 1)
         let currentCountry = viewModel.currentCountry(delegate: CurrentCountryViewModelDelegateMock.empty)
         
         // Only brief checking is performed here
@@ -152,6 +163,7 @@ extension CountryListViewModelTests {
                            currentLocation: Location? = nil,
                            sortingService: SortingServiceProtocol = SortingServiceMock.empty,
                            filteringService: FilteringServiceProtocol = FilteringServiceMock.empty,
+                           countryStorageService: CountryStorageServiceProtocol = CountryStorageServiceMock.empty,
                            actions: ((CountryListViewModel) -> Int)? = nil,
                            file: StaticString = #file,
                            line: UInt = #line) -> CountryListViewModel {
@@ -192,7 +204,8 @@ extension CountryListViewModelTests {
             countriesProvider: provider,
             locationProvider: locationProvider,
             sortingService: sortingService,
-            filteringService: filteringService
+            filteringService: filteringService,
+            countryStorageService: countryStorageService
         )
         
         viewModel.loadCountries()
