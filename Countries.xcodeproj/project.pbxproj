@@ -140,6 +140,7 @@
 		D8F64525223077F0008111FB /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64524223077F0008111FB /* TodayViewController.swift */; };
 		D8F64528223077F0008111FB /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8F64526223077F0008111FB /* MainInterface.storyboard */; };
 		D8F6452C223077F0008111FB /* CountriesTodayWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D8F6451F223077F0008111FB /* CountriesTodayWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D8F64552223086D7008111FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8F64551223086D7008111FB /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -314,6 +315,7 @@
 		D8F64529223077F0008111FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8F6454F2230865C008111FB /* Countries.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Countries.entitlements; sourceTree = "<group>"; };
 		D8F645502230866A008111FB /* CountriesTodayWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CountriesTodayWidget.entitlements; sourceTree = "<group>"; };
+		D8F64551223086D7008111FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -672,10 +674,11 @@
 		D8F64523223077F0008111FB /* CountriesTodayWidget */ = {
 			isa = PBXGroup;
 			children = (
-				D8F645502230866A008111FB /* CountriesTodayWidget.entitlements */,
 				D8F64524223077F0008111FB /* TodayViewController.swift */,
 				D8F64526223077F0008111FB /* MainInterface.storyboard */,
 				D8F64529223077F0008111FB /* Info.plist */,
+				D8F64551223086D7008111FB /* Assets.xcassets */,
+				D8F645502230866A008111FB /* CountriesTodayWidget.entitlements */,
 			);
 			path = CountriesTodayWidget;
 			sourceTree = "<group>";
@@ -832,6 +835,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8F64552223086D7008111FB /* Assets.xcassets in Resources */,
 				D8F64528223077F0008111FB /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
