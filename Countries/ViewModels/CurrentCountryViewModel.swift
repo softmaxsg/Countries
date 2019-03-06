@@ -25,74 +25,25 @@ protocol CurrentCountryViewModelProtocol: class, CountryDetailsProtocol {
 
 final class CurrentCountryViewModel: CurrentCountryViewModelProtocol {
     
-    private let briefDetails: CountryBriefDetailsViewModel
+    private let details: CountryDetailsViewModel
     
     weak var delegate: CurrentCountryViewModelDelegate?
-    
     var viewMode = CurrentCountryViewMode.compact { didSet { delegate?.viewModeDidChange() } }
     
-    var name: String { return briefDetails.name }
-    var population: String { return briefDetails.population }
-    var areaSize: String { return briefDetails.areaSize }
-    var flagUrl: URL { return briefDetails.flagUrl }
+    var name: String { return details.name }
+    var population: String { return details.population }
+    var areaSize: String { return details.areaSize }
+    var flagUrl: URL { return details.flagUrl }
 
-    let capital: String
-    let region: String
-    let regionalBlocs: String
-    let languages: String
-    let currencies: String
+    var capital: String { return details.capital }
+    var region: String { return details.region }
+    var regionalBlocs: String { return details.regionalBlocs }
+    var languages: String { return details.languages }
+    var currencies: String { return details.currencies }
 
     init(delegate: CurrentCountryViewModelDelegate, country: Country) {
         self.delegate = delegate
-        
-        briefDetails = CountryBriefDetailsViewModel(country: country)
-        
-        capital = country.capital
-        region = country.region
-
-        languages = country.languages.map { $0.displayText }.joined(separator: ", ")
-        regionalBlocs = country.regionalBlocs.map { $0.displayText }.joined(separator: ", ")
-        currencies = country.currencies.compactMap { $0.displayText }.joined(separator: ", ")
+        details = CountryDetailsViewModel(country: country)
     }
     
-}
-
-private extension Language {
-    
-    var displayText: String {
-        return "\(name) (\(nativeName))"
-    }
-    
-}
-
-private extension RegionalBloc {
-    
-    var displayText: String {
-        return "\(name) (\(acronym))"
-    }
-    
-}
-
-private extension Currency {
-
-    var displayText: String? {
-        let code = self.code.flatMap { code in
-            code != "(none)" ? "(\(code))" : nil
-        }
-        
-        var symbolAndName: String? = [symbol, name]
-            .compactMap { $0 }
-            .joined(separator: " - ")
-        
-        if symbolAndName?.isEmpty ?? true {
-            symbolAndName = nil
-        }
-
-        let result = [symbolAndName, code]
-            .compactMap { $0 }
-            .joined(separator: " ")
-        
-        return !result.isEmpty ? result : nil
-    }
-
 }
