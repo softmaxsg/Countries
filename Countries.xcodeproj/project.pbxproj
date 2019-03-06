@@ -136,6 +136,10 @@
 		D8F6451422305F2A008111FB /* CountryStorageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6451322305F2A008111FB /* CountryStorageServiceTests.swift */; };
 		D8F64518223062DE008111FB /* Data+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64517223062DE008111FB /* Data+Random.swift */; };
 		D8F6451A22306AB3008111FB /* CountryStorageServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6451922306AB3008111FB /* CountryStorageServiceMock.swift */; };
+		D8F64522223077F0008111FB /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F64521223077F0008111FB /* NotificationCenter.framework */; };
+		D8F64525223077F0008111FB /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64524223077F0008111FB /* TodayViewController.swift */; };
+		D8F64528223077F0008111FB /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8F64526223077F0008111FB /* MainInterface.storyboard */; };
+		D8F6452C223077F0008111FB /* CountriesTodayWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D8F6451F223077F0008111FB /* CountriesTodayWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,7 +150,28 @@
 			remoteGlobalIDString = D8F643592225E636008111FB;
 			remoteInfo = Countries;
 		};
+		D8F6452A223077F0008111FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8F643522225E636008111FB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D8F6451E223077F0008111FB;
+			remoteInfo = CountriesTodayWidget;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D8F64530223077F0008111FB /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D8F6452C223077F0008111FB /* CountriesTodayWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D8F6435A2225E636008111FB /* Countries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Countries.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -282,6 +307,11 @@
 		D8F6451322305F2A008111FB /* CountryStorageServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryStorageServiceTests.swift; sourceTree = "<group>"; };
 		D8F64517223062DE008111FB /* Data+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Random.swift"; sourceTree = "<group>"; };
 		D8F6451922306AB3008111FB /* CountryStorageServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryStorageServiceMock.swift; sourceTree = "<group>"; };
+		D8F6451F223077F0008111FB /* CountriesTodayWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CountriesTodayWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8F64521223077F0008111FB /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		D8F64524223077F0008111FB /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		D8F64527223077F0008111FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		D8F64529223077F0008111FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +329,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D8F6451C223077F0008111FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8F64522223077F0008111FB /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -307,6 +345,8 @@
 			children = (
 				D8F6435C2225E636008111FB /* Countries */,
 				D8F643712225E637008111FB /* CountriesTests */,
+				D8F64523223077F0008111FB /* CountriesTodayWidget */,
+				D8F64520223077F0008111FB /* Frameworks */,
 				D8F6435B2225E636008111FB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -316,6 +356,7 @@
 			children = (
 				D8F6435A2225E636008111FB /* Countries.app */,
 				D8F6436E2225E637008111FB /* CountriesTests.xctest */,
+				D8F6451F223077F0008111FB /* CountriesTodayWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -617,6 +658,24 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		D8F64520223077F0008111FB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8F64521223077F0008111FB /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D8F64523223077F0008111FB /* CountriesTodayWidget */ = {
+			isa = PBXGroup;
+			children = (
+				D8F64524223077F0008111FB /* TodayViewController.swift */,
+				D8F64526223077F0008111FB /* MainInterface.storyboard */,
+				D8F64529223077F0008111FB /* Info.plist */,
+			);
+			path = CountriesTodayWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -627,10 +686,12 @@
 				D8F643562225E636008111FB /* Sources */,
 				D8F643572225E636008111FB /* Frameworks */,
 				D8F643582225E636008111FB /* Resources */,
+				D8F64530223077F0008111FB /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D8F6452B223077F0008111FB /* PBXTargetDependency */,
 			);
 			name = Countries;
 			productName = Countries;
@@ -655,6 +716,23 @@
 			productReference = D8F6436E2225E637008111FB /* CountriesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		D8F6451E223077F0008111FB /* CountriesTodayWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8F6452D223077F0008111FB /* Build configuration list for PBXNativeTarget "CountriesTodayWidget" */;
+			buildPhases = (
+				D8F6451B223077F0008111FB /* Sources */,
+				D8F6451C223077F0008111FB /* Frameworks */,
+				D8F6451D223077F0008111FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CountriesTodayWidget;
+			productName = CountriesTodayWidget;
+			productReference = D8F6451F223077F0008111FB /* CountriesTodayWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -671,6 +749,9 @@
 					D8F6436D2225E637008111FB = {
 						CreatedOnToolsVersion = 10.1;
 						TestTargetID = D8F643592225E636008111FB;
+					};
+					D8F6451E223077F0008111FB = {
+						CreatedOnToolsVersion = 10.1;
 					};
 				};
 			};
@@ -689,6 +770,7 @@
 			targets = (
 				D8F643592225E636008111FB /* Countries */,
 				D8F6436D2225E637008111FB /* CountriesTests */,
+				D8F6451E223077F0008111FB /* CountriesTodayWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -729,6 +811,14 @@
 				D8F644C0222F413D008111FB /* CountryDetailsViewTests_testCompactAppearance@2x.png in Resources */,
 				D8F643F22228733C008111FB /* CountryViewCellTests_testNoAreaSizeAppearance@2x.png in Resources */,
 				D8F643F32228733C008111FB /* CountryViewCellTests_testNormalAppearance@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8F6451D223077F0008111FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8F64528223077F0008111FB /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -854,6 +944,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D8F6451B223077F0008111FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8F64525223077F0008111FB /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -861,6 +959,11 @@
 			isa = PBXTargetDependency;
 			target = D8F643592225E636008111FB /* Countries */;
 			targetProxy = D8F6436F2225E637008111FB /* PBXContainerItemProxy */;
+		};
+		D8F6452B223077F0008111FB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D8F6451E223077F0008111FB /* CountriesTodayWidget */;
+			targetProxy = D8F6452A223077F0008111FB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -879,6 +982,14 @@
 				D8F643672225E637008111FB /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D8F64526223077F0008111FB /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D8F64527223077F0008111FB /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1003,6 +1114,7 @@
 		D8F643782225E637008111FB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Countries/Info.plist;
@@ -1021,6 +1133,7 @@
 		D8F643792225E637008111FB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Countries/Info.plist;
@@ -1076,6 +1189,42 @@
 			};
 			name = Release;
 		};
+		D8F6452E223077F0008111FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CountriesTodayWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chupryk.Countries.CountriesTodayWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D8F6452F223077F0008111FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CountriesTodayWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chupryk.Countries.CountriesTodayWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1102,6 +1251,15 @@
 			buildConfigurations = (
 				D8F6437B2225E637008111FB /* Debug */,
 				D8F6437C2225E637008111FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8F6452D223077F0008111FB /* Build configuration list for PBXNativeTarget "CountriesTodayWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8F6452E223077F0008111FB /* Debug */,
+				D8F6452F223077F0008111FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
