@@ -23,6 +23,7 @@ final class CountriesViewController: UIViewController, TableViewContainer, State
         
         CountryViewCell.register(in: tableView, with: CellIdentifier.country.rawValue)
         
+        // Hide until `currentCountryDidChange` is called
         currentCountryView?.isHidden = true
         
         updateControls()
@@ -70,6 +71,9 @@ extension CountriesViewController: CountryListViewModelDelegate {
     func stateDidChange() {
         updateControls()
         tableView.reloadData()
+    }
+    
+    func currentCountryDidChange() {
     }
     
 }

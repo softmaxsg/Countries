@@ -7,6 +7,7 @@ import Foundation
 protocol CountryListViewModelDelegate: class {
     
     func stateDidChange()
+    func currentCountryDidChange()
     
 }
 
@@ -16,6 +17,7 @@ protocol CountryListViewModelProtocol {
     func item(at index: Int) throws -> CountryListItemViewModelProtocol
     
     func loadCountries()
+    func currentCountry(delegate: CurrentCountryViewModelDelegate) -> CurrentCountryViewModelProtocol?
     
 }
 
@@ -29,8 +31,8 @@ final class CountryListViewModel: CountryListViewModelProtocol {
     private let filteringService: FilteringServiceProtocol
 
     private let operationQueue = OperationQueue()
-    private var currentLocation: Result<Location>? = nil { didSet { sortCountries() } }
-    private var countries: [Country]? = nil { didSet { sortCountries() } }
+    private var currentLocation: Result<Location>? = nil { didSet { processCountries() } }
+    private var countries: [Country]? = nil { didSet { processCountries() } }
     // Helps improving performance by sorting only on changing the location or countries list
     private var sortedCountries: [Country]? = nil { didSet { updateItems() } }
     private var items: [CountryListItemViewModelProtocol] = []
@@ -72,6 +74,14 @@ final class CountryListViewModel: CountryListViewModelProtocol {
             }
         }
     }
+    
+    func currentCountry(delegate: CurrentCountryViewModelDelegate) -> CurrentCountryViewModelProtocol? {
+        guard let currentLocation = currentLocation, let countries = countries else { return nil }
+        
+        return countries
+            .first { $0.countryCode2.lowercased() == currentLocation.value?.countryCode?.lowercased() }
+            .map { CurrentCountryViewModel(delegate: delegate, country: $0) }
+    }
 
 }
 
@@ -89,8 +99,12 @@ extension CountryListViewModel: LocationProviderDelegate {
 
 extension CountryListViewModel {
     
-    private func sortCountries() {
+    private func processCountries() {
         guard let currentLocation = currentLocation, var countries = countries else { return }
+
+        OperationQueue.main.addOperation {
+            self.delegate?.currentCountryDidChange()
+        }
 
         // Remove current country from the list
         countries.removeAll { $0.countryCode2.lowercased() == currentLocation.value?.countryCode?.lowercased() }

@@ -107,7 +107,34 @@ final class CountryListViewModelTests: XCTestCase {
         
         compareItems(in: viewModel, with: expectedCountries)
     }
+    
+    func testCurrentCountry() {
+        let currentCountryDidChangeExpectation = self.expectation(description: "CountryListViewModelDelegate.currentCountryDidChange")
+        let delegate = CountryListViewModelDelegateMock(
+            stateDidChange: { },
+            currentCountryDidChange: {
+                XCTAssertTrue(OperationQueue.current! === OperationQueue.main, "Delegate method has to be called on the main thread")
+                currentCountryDidChangeExpectation.fulfill()
+            }
+        )
 
+        let expectedCountry = initialCountries.randomElement()!
+        let expectedLocation = Location.random(countryCode: expectedCountry.countryCode2)
+        
+        let viewModel = self.viewModel(
+            with: .success(initialCountries),
+            delegate: delegate,
+            currentLocation: expectedLocation
+        )
+        
+        wait(for: [currentCountryDidChangeExpectation], timeout: 1)
+        let currentCountry = viewModel.currentCountry(delegate: CurrentCountryViewModelDelegateMock.empty)
+        
+        // Only brief checking is performed here
+        // Detailed testing of CurrentCountryViewModel is implemented separately
+        XCTAssertTrue(currentCountry?.isEqual(to: expectedCountry) ?? false)
+    }
+    
 }
 
 extension CountryListViewModelTests {
@@ -121,26 +148,32 @@ extension CountryListViewModelTests {
     }
     
     private func viewModel(with result: Result<[Country]>,
+                           delegate: CountryListViewModelDelegate? = nil,
                            currentLocation: Location? = nil,
                            sortingService: SortingServiceProtocol = SortingServiceMock.empty,
                            filteringService: FilteringServiceProtocol = FilteringServiceMock.empty,
                            actions: ((CountryListViewModel) -> Int)? = nil,
                            file: StaticString = #file,
                            line: UInt = #line) -> CountryListViewModel {
-        var expectation = self.expectation(description: "CountryListViewModel.loadCountries")
-        
+        var stateDidChangeExpectation = self.expectation(description: "CountryListViewModelDelegate.stateDidChange")
+
         var viewModel: CountryListViewModel!
         
         let provider = mockedCountriesProvider(with: result)
-        let delegate = CountryListViewModelDelegateMock {
-            XCTAssertTrue(OperationQueue.current! === OperationQueue.main, "Delegate method has to be called on the main thread")
-            switch viewModel.currentState {
-            case .loading: return // Expectation should not be fulfilled in this case
-            case .data: XCTAssertNotNil(result.value, file: file, line: line)
-            case .error: XCTAssertNotNil(result.error, file: file, line: line)
+        let defaultDelegate = CountryListViewModelDelegateMock(
+            stateDidChange: {
+                XCTAssertTrue(OperationQueue.current! === OperationQueue.main, "Delegate method has to be called on the main thread")
+                switch viewModel.currentState {
+                case .loading: return // Expectation should not be fulfilled in this case
+                case .data: XCTAssertNotNil(result.value, file: file, line: line)
+                case .error: XCTAssertNotNil(result.error, file: file, line: line)
+                }
+                stateDidChangeExpectation.fulfill()
+            },
+            currentCountryDidChange: {
+                XCTAssertTrue(OperationQueue.current! === OperationQueue.main, "Delegate method has to be called on the main thread")
             }
-            expectation.fulfill()
-        }
+        )
 
         var locationProvider: LocationProviderMock! = nil
         locationProvider = LocationProviderMock(
@@ -155,7 +188,7 @@ extension CountryListViewModelTests {
         )
         
         viewModel = CountryListViewModel(
-            delegate: delegate,
+            delegate: delegate ?? defaultDelegate,
             countriesProvider: provider,
             locationProvider: locationProvider,
             sortingService: sortingService,
@@ -163,12 +196,21 @@ extension CountryListViewModelTests {
         )
         
         viewModel.loadCountries()
-        wait(for: [expectation], timeout: 1)
+        
+        if delegate != nil {
+            stateDidChangeExpectation.fulfill()
+        }
+        
+        wait(for: [stateDidChangeExpectation], timeout: 1)
         
         if let actions = actions {
-            expectation = self.expectation(description: "CountryListViewModelDelegate.stateDidChange")
-            expectation.expectedFulfillmentCount = actions(viewModel)
-            wait(for: [expectation], timeout: 1)
+            if delegate == nil {
+                stateDidChangeExpectation = self.expectation(description: "CountryListViewModelDelegate.stateDidChange")
+                stateDidChangeExpectation.expectedFulfillmentCount = actions(viewModel)
+                wait(for: [stateDidChangeExpectation], timeout: 1)
+            } else {
+                _ = actions(viewModel)
+            }
         }
 
         return viewModel
