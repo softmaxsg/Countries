@@ -128,6 +128,13 @@
 		D8F644C4222F413D008111FB /* CountryDetailsViewTests_testExpandedAppearanceWithoutLanguages@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F644B6222F413C008111FB /* CountryDetailsViewTests_testExpandedAppearanceWithoutLanguages@3x.png */; };
 		D8F644C5222F413D008111FB /* CountryDetailsViewTests_testExpandedAppearanceWithoutRegion@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F644B7222F413C008111FB /* CountryDetailsViewTests_testExpandedAppearanceWithoutRegion@3x.png */; };
 		D8F644C6222F413D008111FB /* CountryDetailsViewTests_testExpandedAppearance@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F644B8222F413C008111FB /* CountryDetailsViewTests_testExpandedAppearance@3x.png */; };
+		D8F6450822304EDF008111FB /* UserDefaultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6450722304EDF008111FB /* UserDefaultsProtocol.swift */; };
+		D8F6450A223051C1008111FB /* CountryStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64509223051C1008111FB /* CountryStorageService.swift */; };
+		D8F6450C22305401008111FB /* JSONEncoderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6450B22305401008111FB /* JSONEncoderProtocol.swift */; };
+		D8F6451022305A00008111FB /* JSONEncoderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6450F22305A00008111FB /* JSONEncoderMock.swift */; };
+		D8F6451222305B23008111FB /* UserDefaultsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6451122305B23008111FB /* UserDefaultsMock.swift */; };
+		D8F6451422305F2A008111FB /* CountryStorageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6451322305F2A008111FB /* CountryStorageServiceTests.swift */; };
+		D8F64518223062DE008111FB /* Data+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64517223062DE008111FB /* Data+Random.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -266,6 +273,13 @@
 		D8F644B6222F413C008111FB /* CountryDetailsViewTests_testExpandedAppearanceWithoutLanguages@3x.png */ = {isa = PBXFileReference; explicitFileType = compiled; path = "CountryDetailsViewTests_testExpandedAppearanceWithoutLanguages@3x.png"; sourceTree = "<group>"; };
 		D8F644B7222F413C008111FB /* CountryDetailsViewTests_testExpandedAppearanceWithoutRegion@3x.png */ = {isa = PBXFileReference; explicitFileType = compiled; path = "CountryDetailsViewTests_testExpandedAppearanceWithoutRegion@3x.png"; sourceTree = "<group>"; };
 		D8F644B8222F413C008111FB /* CountryDetailsViewTests_testExpandedAppearance@3x.png */ = {isa = PBXFileReference; explicitFileType = compiled; path = "CountryDetailsViewTests_testExpandedAppearance@3x.png"; sourceTree = "<group>"; };
+		D8F6450722304EDF008111FB /* UserDefaultsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsProtocol.swift; sourceTree = "<group>"; };
+		D8F64509223051C1008111FB /* CountryStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryStorageService.swift; sourceTree = "<group>"; };
+		D8F6450B22305401008111FB /* JSONEncoderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONEncoderProtocol.swift; sourceTree = "<group>"; };
+		D8F6450F22305A00008111FB /* JSONEncoderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONEncoderMock.swift; sourceTree = "<group>"; };
+		D8F6451122305B23008111FB /* UserDefaultsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsMock.swift; sourceTree = "<group>"; };
+		D8F6451322305F2A008111FB /* CountryStorageServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryStorageServiceTests.swift; sourceTree = "<group>"; };
+		D8F64517223062DE008111FB /* Data+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Random.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,6 +357,7 @@
 				D8F643B5222713F4008111FB /* Networking */,
 				D8F643A72226F8F7008111FB /* CountriesProvider.swift */,
 				D8F6441D222C7083008111FB /* CountryGeocoder.swift */,
+				D8F64509223051C1008111FB /* CountryStorageService.swift */,
 				D8F64438222D8B98008111FB /* DistanceCalculator.swift */,
 				D8F643F922289842008111FB /* FilteringService.swift */,
 				D8F643D622285C02008111FB /* ImageLoader.swift */,
@@ -375,8 +390,10 @@
 				D8F643BA2227148E008111FB /* Constants.swift */,
 				D8F643F4222887BC008111FB /* DependencyContainer.swift */,
 				D8F643B3222713DF008111FB /* JSONDecoderProtocol.swift */,
+				D8F6450B22305401008111FB /* JSONEncoderProtocol.swift */,
 				D8F643A52226F849008111FB /* RandomAccessCollection+Helpers.swift */,
 				D8F643842225FEDC008111FB /* Result.swift */,
+				D8F6450722304EDF008111FB /* UserDefaultsProtocol.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -418,6 +435,7 @@
 			children = (
 				D8F64407222BD64A008111FB /* Array+Random.swift */,
 				D8F64427222C8F1B008111FB /* CLLocation+Random.swift */,
+				D8F64517223062DE008111FB /* Data+Random.swift */,
 				D8F64405222BD2D2008111FB /* RangeReplaceableCollection+Helpers.swift */,
 				D8F643962226E8FC008111FB /* String+Random.swift */,
 				D8F643E322286F96008111FB /* UIImage+Helpers.swift */,
@@ -450,6 +468,7 @@
 				D8F6440D222C4986008111FB /* JSONDecoder+Helpers.swift */,
 				D8F643C62228250D008111FB /* JSONDecoderMock.swift */,
 				D8F6444C222DBDEA008111FB /* JSONEncoder+Helpers.swift */,
+				D8F6450F22305A00008111FB /* JSONEncoderMock.swift */,
 				D8F643C222271EA5008111FB /* JSONPresentable.swift */,
 				D8F6440122295640008111FB /* Language+Helpers.swift */,
 				D8F64436222D79AA008111FB /* Location+Helpers.swift */,
@@ -475,6 +494,7 @@
 				D8F643AC22270539008111FB /* Helpers */,
 				D8F643BC22271889008111FB /* CountriesProviderTests.swift */,
 				D8F64423222C8D37008111FB /* CountryGeocoderTests.swift */,
+				D8F6451322305F2A008111FB /* CountryStorageServiceTests.swift */,
 				D8F6443E222D93D5008111FB /* DistanceCalculatorTests.swift */,
 				D8F6440322295B09008111FB /* FilteredServiceTests.swift */,
 				D8F643D822285DDB008111FB /* ImageLoaderTests.swift */,
@@ -500,6 +520,7 @@
 				D8F64448222DA7B3008111FB /* SortingServiceMock.swift */,
 				D8F643BE22271DD9008111FB /* URLSessionDataTaskMock.swift */,
 				D8F643BF22271DD9008111FB /* URLSessionMock.swift */,
+				D8F6451122305B23008111FB /* UserDefaultsMock.swift */,
 				D8F643C422271FFF008111FB /* XCTestCase+URLSessionMock.swift */,
 			);
 			path = Helpers;
@@ -721,6 +742,7 @@
 				D8F6441E222C7083008111FB /* CountryGeocoder.swift in Sources */,
 				D8F64422222C71A8008111FB /* CLLocationManagerProtocol.swift in Sources */,
 				D8F64420222C70D0008111FB /* CLGeocoderProtocol.swift in Sources */,
+				D8F6450822304EDF008111FB /* UserDefaultsProtocol.swift in Sources */,
 				D8F6448B222DDE37008111FB /* CountryBriefDetailsViewModel.swift in Sources */,
 				D8F64441222D974F008111FB /* SortingService.swift in Sources */,
 				D8F643B4222713DF008111FB /* JSONDecoderProtocol.swift in Sources */,
@@ -729,6 +751,7 @@
 				D8F64493222F0330008111FB /* CountryDetails.swift in Sources */,
 				D8F64499222F1868008111FB /* Currency.swift in Sources */,
 				D8F643FE22289E75008111FB /* NameTranslations.swift in Sources */,
+				D8F6450C22305401008111FB /* JSONEncoderProtocol.swift in Sources */,
 				D8F643A62226F849008111FB /* RandomAccessCollection+Helpers.swift in Sources */,
 				D8F6441C222C7028008111FB /* Location.swift in Sources */,
 				D8F6448F222F0238008111FB /* CountryDetailsView.swift in Sources */,
@@ -756,6 +779,7 @@
 				D8F6435E2225E636008111FB /* AppDelegate.swift in Sources */,
 				D8F643BB2227148E008111FB /* Constants.swift in Sources */,
 				D8F643FC22289C3D008111FB /* Language.swift in Sources */,
+				D8F6450A223051C1008111FB /* CountryStorageService.swift in Sources */,
 				D8F643D122282AC3008111FB /* CountryViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -784,6 +808,7 @@
 				D8F644A5222F2F54008111FB /* CountryBriefDetailsViewModel+Helpers.swift in Sources */,
 				D8F6442D222C9315008111FB /* CLPlacemarkMock.swift in Sources */,
 				D8F6449D222F288B008111FB /* RegionalBloc+Helpers.swift in Sources */,
+				D8F6451422305F2A008111FB /* CountryStorageServiceTests.swift in Sources */,
 				D8F64445222D98C6008111FB /* DistanceCalculatorMock.swift in Sources */,
 				D8F64410222C49C2008111FB /* NameTranslationsDecodingTests.swift in Sources */,
 				D8F6440C222C493D008111FB /* Dictionary+Helpers.swift in Sources */,
@@ -798,8 +823,11 @@
 				D8F64433222CA51F008111FB /* CountryGeocoderMock.swift in Sources */,
 				D8F6449F222F2CEE008111FB /* CurrentCountryViewModelTests.swift in Sources */,
 				D8F643972226E8FC008111FB /* String+Random.swift in Sources */,
+				D8F64518223062DE008111FB /* Data+Random.swift in Sources */,
 				D8F643942226E89C008111FB /* CountryListItemViewModelTests.swift in Sources */,
 				D8F64435222CA9DB008111FB /* LocationProviderDelegateMock.swift in Sources */,
+				D8F6451222305B23008111FB /* UserDefaultsMock.swift in Sources */,
+				D8F6451022305A00008111FB /* JSONEncoderMock.swift in Sources */,
 				D8F643E022286F3D008111FB /* CountryViewCellTests.swift in Sources */,
 				D8F6438C2226AC2D008111FB /* ResultTests.swift in Sources */,
 				D8F643C72228250D008111FB /* JSONDecoderMock.swift in Sources */,
