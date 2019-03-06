@@ -59,9 +59,14 @@ final class LocationProvider: NSObject, LocationProviderProtocol {
         
         // Storing lastAuthorizationStatus is required since locationManager(_:didChangeAuthorization:) can be called without an actual status change
         lastAuthorizationStatus = locationManager.authorizationStatus()
-        if lastAuthorizationStatus == .notDetermined {
+        switch lastAuthorizationStatus {
+        case .notDetermined:
             requestAuthorization()
-        } else {
+        case .restricted:
+            fallthrough
+        case .denied:
+            delegate.locationProvider(self, didFailWithError: CLError(CLError.denied))
+        default:
             internalStartMonitoring()
         }
     }
