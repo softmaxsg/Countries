@@ -12,7 +12,7 @@ final class CountriesViewController: UIViewController, TableViewContainer, State
     @IBOutlet weak var emptyBackgroundView: UIView?
     @IBOutlet weak var errorBackgroundView: ErrorView?
     
-    @IBOutlet weak var currentCountryView: UIView?
+    @IBOutlet weak var currentCountryView: CurrentCountryView?
 
     private let assembly = CountriesAssembly()
     private lazy var viewModel = assembly.countriesViewModel(delegate: self)
@@ -74,6 +74,12 @@ extension CountriesViewController: CountryListViewModelDelegate {
     }
     
     func currentCountryDidChange() {
+        guard let currentCountryView = currentCountryView else { return }
+        let currentCountryViewModel = viewModel.currentCountry(delegate: currentCountryView)
+        currentCountryView.isHidden = currentCountryViewModel == nil
+        if let currentCountryViewModel = currentCountryViewModel {
+            currentCountryView.configure(with: currentCountryViewModel)
+        }
     }
     
 }

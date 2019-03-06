@@ -21,7 +21,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3bj-zd-JPO">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nEQ-Xt-QSt">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nEQ-Xt-QSt" customClass="CurrentCountryView" customModule="Countries" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="LsD-Nk-7fY">
@@ -40,6 +40,9 @@
                                                                 <rect key="frame" x="305" y="-3" width="38" height="32"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <state key="normal" title="More"/>
+                                                                <connections>
+                                                                    <action selector="toggleViewModeTapped" destination="nEQ-Xt-QSt" eventType="touchUpInside" id="koY-Co-9UM"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -70,6 +73,10 @@
                                             <constraint firstItem="a1o-PW-a6P" firstAttribute="bottom" secondItem="LsD-Nk-7fY" secondAttribute="bottom" constant="10" id="ghA-8I-Iod"/>
                                         </constraints>
                                         <viewLayoutGuide key="safeArea" id="a1o-PW-a6P"/>
+                                        <connections>
+                                            <outlet property="detailsWrapper" destination="Kxz-cK-Gch" id="3vF-bw-GsO"/>
+                                            <outlet property="toggleViewModeButton" destination="AiZ-1b-sq8" id="1Kn-gB-lgp"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                             </stackView>
