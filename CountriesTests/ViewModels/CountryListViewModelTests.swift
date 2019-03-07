@@ -152,10 +152,15 @@ extension CountryListViewModelTests {
     
     private enum MockError: Error { case some }
     
-    private func mockedCountriesProvider(with result: Result<[Country]>) -> CountriesProviderProtocol {
-        return CountriesProviderMock { handler in
-            OperationQueue.main.addOperation { handler(result) }
-        }
+    private func mockedCountriesProvider(with result: Result<[Country]>, file: StaticString = #file, line: UInt = #line) -> CountriesProviderProtocol {
+        return CountriesProviderMock(
+            loadAll: { handler in
+                OperationQueue.main.addOperation { handler(result) }
+            },
+            load: { _, _ in
+                XCTFail("Should not be called", file: file, line: line)
+            }
+        )
     }
     
     private func viewModel(with result: Result<[Country]>,
@@ -171,7 +176,7 @@ extension CountryListViewModelTests {
 
         var viewModel: CountryListViewModel!
         
-        let provider = mockedCountriesProvider(with: result)
+        let provider = mockedCountriesProvider(with: result, file: file, line: line)
         let defaultDelegate = CountryListViewModelDelegateMock(
             stateDidChange: {
                 XCTAssertTrue(OperationQueue.current! === OperationQueue.main, "Delegate method has to be called on the main thread")

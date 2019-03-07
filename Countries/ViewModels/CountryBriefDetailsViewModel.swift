@@ -22,7 +22,7 @@ final class CountryBriefDetailsViewModel: CountryBriefDetailsProtocol {
     
     init(country: Country) {
         name = country.name
-        flagUrl = URL(string: String(format: Constants.countryFlagUrlTemplate, country.countryCode2.lowercased()))!
+        flagUrl = Constants.countryFlagUrl(code: country.countryCode2)
         
         let formatter = CountryBriefDetailsViewModel.numberFormatter()
         population = formatter.string(from: NSNumber(value: country.population))!

@@ -4,11 +4,13 @@
 
 import Foundation
 
-typealias CountriesProviderCompletionHandler = (Result<[Country]>) -> Void
+typealias CountriesProviderAllCompletionHandler = (Result<[Country]>) -> Void
+typealias CountriesProviderSingleCompletionHandler = (Result<Country>) -> Void
 
 protocol CountriesProviderProtocol {
     
-    func loadAll(completion handler: @escaping CountriesProviderCompletionHandler)
+    func loadAll(completion handler: @escaping CountriesProviderAllCompletionHandler)
+    func load(with code: String, completion handler: @escaping CountriesProviderSingleCompletionHandler)
 
 }
 
@@ -25,17 +27,29 @@ final class CountriesProvider: CountriesProviderProtocol {
         self.jsonDecoder = jsonDecoder
     }
     
-    func loadAll(completion handler: @escaping CountriesProviderCompletionHandler) {
+    func loadAll(completion handler: @escaping CountriesProviderAllCompletionHandler) {
+        load(url: Constants.countriesUrl, completion: handler)
+    }
+    
+    func load(with code: String, completion handler: @escaping CountriesProviderSingleCompletionHandler) {
+        load(url: Constants.countryUrl(code: code), completion: handler)
+    }
+    
+}
+
+extension CountriesProvider {
+    
+    private func load<T>(url: URL, completion handler: @escaping (Result<T>) -> Void) where T: Decodable {
         let jsonDecoder = self.jsonDecoder
-        let task = urlSession.dataTask(with: urlRequest) { (data, urlResponse, error) in
+        let task = urlSession.dataTask(with: URLRequest(url: url)) { (data, urlResponse, error) in
             guard let data = data, let httpResponse = urlResponse as? HTTPURLResponse, (200..<300).contains(httpResponse.statusCode) else {
                 handler(.failure(error ?? Error.unknown))
                 return
             }
             
             do {
-                let countries = try jsonDecoder.decode([Country].self, from: data)
-                handler(.success(countries))
+                let result = try jsonDecoder.decode(T.self, from: data)
+                handler(.success(result))
             } catch let decodingError {
                 handler(.failure(decodingError))
             }
@@ -43,4 +57,5 @@ final class CountriesProvider: CountriesProviderProtocol {
         
         task.resume()
     }
+    
 }
