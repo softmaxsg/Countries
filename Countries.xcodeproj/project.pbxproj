@@ -136,7 +136,7 @@
 		D8F64518223062DE008111FB /* Data+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64517223062DE008111FB /* Data+Random.swift */; };
 		D8F6451A22306AB3008111FB /* CountryStorageServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6451922306AB3008111FB /* CountryStorageServiceMock.swift */; };
 		D8F64522223077F0008111FB /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F64521223077F0008111FB /* NotificationCenter.framework */; };
-		D8F64525223077F0008111FB /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64524223077F0008111FB /* TodayViewController.swift */; };
+		D8F64525223077F0008111FB /* TodayCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64524223077F0008111FB /* TodayCountryViewController.swift */; };
 		D8F64528223077F0008111FB /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8F64526223077F0008111FB /* MainInterface.storyboard */; };
 		D8F6452C223077F0008111FB /* CountriesTodayWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D8F6451F223077F0008111FB /* CountriesTodayWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D8F64552223086D7008111FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8F64551223086D7008111FB /* Assets.xcassets */; };
@@ -173,6 +173,7 @@
 		D8F645792231557D008111FB /* CountryGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6441D222C7083008111FB /* CountryGeocoder.swift */; };
 		D8F6457A22315597008111FB /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F643842225FEDC008111FB /* Result.swift */; };
 		D8F6457B2231559F008111FB /* CLGeocoderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6441F222C70CF008111FB /* CLGeocoderProtocol.swift */; };
+		D8F645962231CFA8008111FB /* TodayCountryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F645952231CFA8008111FB /* TodayCountryAssembly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -341,7 +342,7 @@
 		D8F6451922306AB3008111FB /* CountryStorageServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryStorageServiceMock.swift; sourceTree = "<group>"; };
 		D8F6451F223077F0008111FB /* CountriesTodayWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CountriesTodayWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8F64521223077F0008111FB /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		D8F64524223077F0008111FB /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		D8F64524223077F0008111FB /* TodayCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCountryViewController.swift; sourceTree = "<group>"; };
 		D8F64527223077F0008111FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		D8F64529223077F0008111FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8F6454F2230865C008111FB /* Countries.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Countries.entitlements; sourceTree = "<group>"; };
@@ -349,6 +350,7 @@
 		D8F64551223086D7008111FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8F6456922309043008111FB /* CountryDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		D8F645742230985C008111FB /* TodayCountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCountryViewModel.swift; sourceTree = "<group>"; };
+		D8F645952231CFA8008111FB /* TodayCountryAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCountryAssembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -707,6 +709,7 @@
 		D8F64523223077F0008111FB /* CountriesTodayWidget */ = {
 			isa = PBXGroup;
 			children = (
+				D8F645942231CF8C008111FB /* Assemblies */,
 				D8F645732230983E008111FB /* ViewModels */,
 				D8F6456F2230971F008111FB /* Views */,
 				D8F64526223077F0008111FB /* MainInterface.storyboard */,
@@ -720,7 +723,7 @@
 		D8F6456F2230971F008111FB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D8F64524223077F0008111FB /* TodayViewController.swift */,
+				D8F64524223077F0008111FB /* TodayCountryViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -731,6 +734,14 @@
 				D8F645742230985C008111FB /* TodayCountryViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		D8F645942231CF8C008111FB /* Assemblies */ = {
+			isa = PBXGroup;
+			children = (
+				D8F645952231CFA8008111FB /* TodayCountryAssembly.swift */,
+			);
+			path = Assemblies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1030,9 +1041,10 @@
 				D8F6456E2230929E008111FB /* JSONDecoderProtocol.swift in Sources */,
 				D8F6455622308718008111FB /* Language.swift in Sources */,
 				D8F64567223087B6008111FB /* DependencyContainer.swift in Sources */,
-				D8F64525223077F0008111FB /* TodayViewController.swift in Sources */,
+				D8F64525223077F0008111FB /* TodayCountryViewController.swift in Sources */,
 				D8F6455422308718008111FB /* Country.swift in Sources */,
 				D8F6455822308718008111FB /* NameTranslations.swift in Sources */,
+				D8F645962231CFA8008111FB /* TodayCountryAssembly.swift in Sources */,
 				D8F64577223099B2008111FB /* LocationProvider.swift in Sources */,
 				D8F6456D2230929B008111FB /* JSONEncoderProtocol.swift in Sources */,
 				D8F64576223099AC008111FB /* CountriesProvider.swift in Sources */,
