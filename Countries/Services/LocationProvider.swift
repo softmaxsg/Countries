@@ -7,33 +7,25 @@ import CoreLocation
 
 typealias LocationProviderCompletionHandler = (Result<Location>) -> Void
 
-protocol LocationProviderDelegate: class {
-
-    func locationProvider(_ provider: LocationProviderProtocol, didUpdateLocation location: Location)
-    func locationProvider(_ provider: LocationProviderProtocol, didFailWithError error: Error)
-
-}
-
 protocol LocationProviderProtocol {
 
-    func startMonitoring(delegate: LocationProviderDelegate)
-    func stopMonitoring()
+    func requestLocation(completion handler: @escaping LocationProviderCompletionHandler)
 
 }
 
 final class LocationProvider: NSObject, LocationProviderProtocol {
+    
+    enum Error: Swift.Error {
+        
+        case simultaneousRequestsAreNotSupported
+        
+    }
 
     private let locationManager: CLLocationManagerProtocol
     private let countryGeocoder: CountryGeocoderProtocol
     
     private var lastAuthorizationStatus = CLAuthorizationStatus.notDetermined
-    
-    // It makes sense to stop monitoring location change in case delegate is deallocated
-    private weak var delegate: LocationProviderDelegate? {
-        didSet {
-            if delegate == nil { internalStopMonitoring() }
-        }
-    }
+    private var completionHanlder: LocationProviderCompletionHandler? = nil
 
     @available(*, unavailable)
     override init () { fatalError() }
@@ -44,18 +36,14 @@ final class LocationProvider: NSObject, LocationProviderProtocol {
         self.countryGeocoder = countryGeocoder
         super.init()
     }
-    
-    deinit {
-        stopMonitoring()
-    }
-    
-    func startMonitoring(delegate: LocationProviderDelegate) {
-        // Restarting monitoring is required in order to force obtaining the current location
-        if self.delegate != nil {
-            internalStopMonitoring()
+
+    func requestLocation(completion handler: @escaping LocationProviderCompletionHandler) {
+        guard completionHanlder == nil else {
+            handler(.failure(Error.simultaneousRequestsAreNotSupported))
+            return
         }
-        
-        self.delegate = delegate
+
+        completionHanlder = handler
         
         // Storing lastAuthorizationStatus is required since locationManager(_:didChangeAuthorization:) can be called without an actual status change
         lastAuthorizationStatus = locationManager.authorizationStatus()
@@ -65,15 +53,10 @@ final class LocationProvider: NSObject, LocationProviderProtocol {
         case .restricted:
             fallthrough
         case .denied:
-            delegate.locationProvider(self, didFailWithError: CLError(CLError.denied))
+            requestDidFail(with: CLError(CLError.denied))
         default:
-            internalStartMonitoring()
+            requestLocation()
         }
-    }
-    
-    func stopMonitoring() {
-        guard delegate != nil else { return }
-        self.delegate = nil
     }
 
 }
@@ -85,16 +68,11 @@ extension LocationProvider {
         locationManager.requestWhenInUseAuthorization()
     }
     
-    private func internalStartMonitoring() {
+    private func requestLocation() {
         locationManager.delegate = self
-        locationManager.startMonitoringSignificantLocationChanges()
+        locationManager.requestLocation()
     }
-
-    private func internalStopMonitoring() {
-        locationManager.delegate = nil
-        locationManager.stopMonitoringSignificantLocationChanges()
-    }
-
+    
 }
 
 extension LocationProvider: CLLocationManagerDelegate {
@@ -109,9 +87,9 @@ extension LocationProvider: CLLocationManagerDelegate {
         case .authorizedAlways:
             fallthrough
         case .authorizedWhenInUse:
-            internalStartMonitoring()
+            requestLocation()
         default:
-            delegate?.locationProvider(self, didFailWithError: CLError(CLError.denied))
+            requestDidFail(with: CLError(CLError.denied))
         }
     }
     
@@ -124,19 +102,25 @@ extension LocationProvider: CLLocationManagerDelegate {
                 countryCode: result.value
             )
             
-            self.delegate?.locationProvider(self, didUpdateLocation: locationDetails)
+            self.requestDidSucceed(with: locationDetails)
         }
     }
 
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        if let locationError = error as? CLError {
-            switch locationError.code {
-            case CLError.locationUnknown: return
-            case CLError.denied: stopMonitoring()
-            default: break
-            }
-        }
-
-        delegate?.locationProvider(self, didFailWithError: error)
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Swift.Error) {
+        requestDidFail(with: error)
     }
+}
+
+extension LocationProvider {
+    
+    private func requestDidSucceed(with location: Location) {
+        completionHanlder?(.success(location))
+        completionHanlder = nil
+    }
+    
+    private func requestDidFail(with error: Swift.Error) {
+        completionHanlder?(.failure(error))
+        completionHanlder = nil
+    }
+
 }

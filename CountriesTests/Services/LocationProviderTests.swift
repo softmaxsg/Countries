@@ -12,25 +12,20 @@ final class LocationProviderTests: XCTestCase {
     private lazy var coreLocation = CLLocation(latitude: expectedLocation.coordinate.latitude, longitude: expectedLocation.coordinate.longitude)
     
     func testFullCycleSuccessfull() {
-        let requestExpectation = self.expectation(description: "CLLocationManager.requestWhenInUseAuthorization")
-        let startExpectation = self.expectation(description: "CLLocationManager.startMonitoringSignificantLocationChanges")
-        let stopExpectation = self.expectation(description: "CLLocationManager.stopMonitoringSignificantLocationChanges")
-        let locationExpectation = self.expectation(description: "LocationProviderDelegate.didUpdateLocation")
+        let authorizationRequestExpectation = self.expectation(description: "CLLocationManager.requestWhenInUseAuthorization")
+        let locationRequestExpectation = self.expectation(description: "CLLocationManager.requestLocation")
 
         var locationManager: CLLocationManagerMock! = nil
         locationManager = mockedLocationManager(
             authorizationStatus: .notDetermined,
             requestWhenInUseAuthorization: {
-                requestExpectation.fulfill()
+                authorizationRequestExpectation.fulfill()
                 locationManager.notifyDidChangeAuthorization(.authorizedWhenInUse)
             },
-            startMonitoringSignificantLocationChanges: {
-                self.wait(for: [requestExpectation], timeout: 1)
-                startExpectation.fulfill()
+            requestLocation: {
+                self.wait(for: [authorizationRequestExpectation], timeout: 1)
+                locationRequestExpectation.fulfill()
                 locationManager.notifyDidUpdateLocations([self.coreLocation])
-            },
-            stopMonitoringSignificantLocationChanges: {
-                stopExpectation.fulfill()
             }
         )
         
@@ -44,38 +39,26 @@ final class LocationProviderTests: XCTestCase {
             countryGeocoder: countryGeocoder
         )
         
-        var result: Location! = nil
-        let delegate = mockedLocationProviderDelegate(
-            didUpdateLocation: { _, location in
-                result = location
-                locationExpectation.fulfill()
-            }
-        )
-        
-        provider.startMonitoring(delegate: delegate)
-        wait(for: [startExpectation, locationExpectation], timeout: 1)
-        
-        provider.stopMonitoring()
-        wait(for: [stopExpectation], timeout: 1)
-        
-        XCTAssertEqual(result, expectedLocation)
+        let result = requestLocation(provider)
+        wait(for: [locationRequestExpectation], timeout: 1)
+
+        XCTAssertEqual(result.value, expectedLocation)
     }
 
     func testGeocoderReturnsError() {
-        let requestExpectation = self.expectation(description: "CLLocationManager.requestWhenInUseAuthorization")
-        let startExpectation = self.expectation(description: "CLLocationManager.startMonitoringSignificantLocationChanges")
-        let locationExpectation = self.expectation(description: "LocationProviderDelegate.didUpdateLocation")
+        let authorizationRequestExpectation = self.expectation(description: "CLLocationManager.requestWhenInUseAuthorization")
+        let locationRequestExpectation = self.expectation(description: "CLLocationManager.requestLocation")
         
         var locationManager: CLLocationManagerMock! = nil
         locationManager = mockedLocationManager(
             authorizationStatus: .notDetermined,
             requestWhenInUseAuthorization: {
-                requestExpectation.fulfill()
+                authorizationRequestExpectation.fulfill()
                 locationManager.notifyDidChangeAuthorization(.authorizedWhenInUse)
             },
-            startMonitoringSignificantLocationChanges: {
-                self.wait(for: [requestExpectation], timeout: 1)
-                startExpectation.fulfill()
+            requestLocation: {
+                self.wait(for: [authorizationRequestExpectation], timeout: 1)
+                locationRequestExpectation.fulfill()
                 locationManager.notifyDidUpdateLocations([self.coreLocation])
             }
         )
@@ -87,36 +70,27 @@ final class LocationProviderTests: XCTestCase {
             countryGeocoder: countryGeocoder
         )
         
-        var result: Location! = nil
-        let delegate = mockedLocationProviderDelegate(
-            didUpdateLocation: { _, location in
-                result = location
-                locationExpectation.fulfill()
-            }
-        )
+        let result = requestLocation(provider)
+        wait(for: [locationRequestExpectation], timeout: 1)
         
-        provider.startMonitoring(delegate: delegate)
-        wait(for: [startExpectation, locationExpectation], timeout: 1)
-        
-        XCTAssertEqual(result.coordinate, expectedLocation.coordinate)
-        XCTAssertNil(result.countryCode)
+        XCTAssertEqual(result.value?.coordinate, expectedLocation.coordinate)
+        XCTAssertNil(result.value?.countryCode)
     }
 
     func testStartMonitoringReturnsError() {
-        let requestExpectation = self.expectation(description: "CLLocationManager.requestWhenInUseAuthorization")
-        let startExpectation = self.expectation(description: "CLLocationManager.startMonitoringSignificantLocationChanges")
-        let errorExpectation = self.expectation(description: "LocationProviderDelegate.didFailWithError")
+        let authorizationRequestExpectation = self.expectation(description: "CLLocationManager.requestWhenInUseAuthorization")
+        let locationRequestExpectation = self.expectation(description: "CLLocationManager.requestLocation")
         
         var locationManager: CLLocationManagerMock! = nil
         locationManager = mockedLocationManager(
             authorizationStatus: .notDetermined,
             requestWhenInUseAuthorization: {
-                requestExpectation.fulfill()
+                authorizationRequestExpectation.fulfill()
                 locationManager.notifyDidChangeAuthorization(.authorizedWhenInUse)
             },
-            startMonitoringSignificantLocationChanges: {
-                self.wait(for: [requestExpectation], timeout: 1)
-                startExpectation.fulfill()
+            requestLocation: {
+                self.wait(for: [authorizationRequestExpectation], timeout: 1)
+                locationRequestExpectation.fulfill()
                 locationManager.notifyDidFailWithError(MockError.some)
             }
         )
@@ -126,27 +100,20 @@ final class LocationProviderTests: XCTestCase {
             countryGeocoder: emptyCountryGeocoder()
         )
         
-        var resultError: Error! = nil
-        let delegate = mockedLocationProviderDelegate(didFailWithError: { _, error in
-            resultError = error
-            errorExpectation.fulfill()
-        })
-        
-        provider.startMonitoring(delegate: delegate)
-        wait(for: [startExpectation, errorExpectation], timeout: 1)
+        let result = requestLocation(provider)
+        wait(for: [locationRequestExpectation], timeout: 1)
 
-        XCTAssertEqual(resultError as? MockError, MockError.some)
+        XCTAssertEqual(result.error as? MockError, MockError.some)
     }
 
     func testRequestAuthorizationFails() {
-        let requestExpectation = self.expectation(description: "CLLocationManager.requestWhenInUseAuthorization")
-        let errorExpectation = self.expectation(description: "LocationProviderDelegate.didFailWithError")
+        let authorizationRequestExpectation = self.expectation(description: "CLLocationManager.requestWhenInUseAuthorization")
         
         var locationManager: CLLocationManagerMock! = nil
         locationManager = mockedLocationManager(
             authorizationStatus: .notDetermined,
             requestWhenInUseAuthorization: {
-                requestExpectation.fulfill()
+                authorizationRequestExpectation.fulfill()
                 locationManager.notifyDidChangeAuthorization(.denied)
             }
         )
@@ -156,26 +123,20 @@ final class LocationProviderTests: XCTestCase {
             countryGeocoder: emptyCountryGeocoder()
         )
         
-        var resultError: Error! = nil
-        let delegate = mockedLocationProviderDelegate(didFailWithError: { _, error in
-            resultError = error
-            errorExpectation.fulfill()
-        })
-        
-        provider.startMonitoring(delegate: delegate)
-        wait(for: [requestExpectation, errorExpectation], timeout: 1)
+        let result = requestLocation(provider)
+        wait(for: [authorizationRequestExpectation], timeout: 1)
 
-        XCTAssertEqual((resultError as? CLError)?.code, CLError.denied)
+        XCTAssertEqual((result.error as? CLError)?.code, CLError.denied)
     }
 
     func testAlreadyAuthorized() {
-        let startExpectation = self.expectation(description: "CLLocationManager.startMonitoringSignificantLocationChanges")
+        let locationRequestExpectation = self.expectation(description: "CLLocationManager.requestLocation")
         
         var locationManager: CLLocationManagerMock! = nil
         locationManager = mockedLocationManager(
             authorizationStatus: .authorizedWhenInUse,
-            startMonitoringSignificantLocationChanges: {
-                startExpectation.fulfill()
+            requestLocation: {
+                locationRequestExpectation.fulfill()
             }
         )
         
@@ -184,10 +145,8 @@ final class LocationProviderTests: XCTestCase {
             countryGeocoder: emptyCountryGeocoder()
         )
         
-        let delegate = mockedLocationProviderDelegate()
-        
-        provider.startMonitoring(delegate: delegate)
-        wait(for: [startExpectation], timeout: 1)
+        provider.requestLocation { _ in }
+        wait(for: [locationRequestExpectation], timeout: 1)
     }
 
 }
@@ -196,17 +155,29 @@ extension LocationProviderTests {
     
     private enum MockError: Error { case some }
     
+    private func requestLocation(_ provider: LocationProviderProtocol) -> Result<Location> {
+        let expectation = self.expectation(description: "LocationProvider.requestLocation")
+        var result: Result<Location>! = nil
+        
+        provider.requestLocation {
+            result = $0
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 1)
+        return result
+    }
+
     private func mockedLocationManager(authorizationStatus: CLAuthorizationStatus,
                                        requestWhenInUseAuthorization: CLLocationManagerMock.MethodImpl? = nil,
-                                       startMonitoringSignificantLocationChanges: CLLocationManagerMock.MethodImpl? = nil,
+                                       requestLocation: CLLocationManagerMock.MethodImpl? = nil,
                                        stopMonitoringSignificantLocationChanges: CLLocationManagerMock.MethodImpl? = nil,
                                        file: StaticString = #file,
                                        line: UInt = #line) -> CLLocationManagerMock {
         return CLLocationManagerMock(
             authorizationStatus: { authorizationStatus  },
             requestWhenInUseAuthorization: requestWhenInUseAuthorization ?? { XCTFail("Should not be called", file: file, line: line) },
-            startMonitoringSignificantLocationChanges: startMonitoringSignificantLocationChanges ?? { XCTFail("Should not be called", file: file, line: line) },
-            stopMonitoringSignificantLocationChanges: stopMonitoringSignificantLocationChanges ?? { XCTFail("Should not be called", file: file, line: line) }
+            requestLocation: requestLocation ?? { XCTFail("Should not be called", file: file, line: line) }
         )
     }
     
@@ -226,16 +197,6 @@ extension LocationProviderTests {
             }
             handler(result)
         }
-    }
-
-    private func mockedLocationProviderDelegate(didUpdateLocation: LocationProviderDelegateMock.DidUpdateLocationImpl? = nil,
-                                                didFailWithError: LocationProviderDelegateMock.DidFailWithErrorImpl? = nil,
-                                                file: StaticString = #file,
-                                                line: UInt = #line) -> LocationProviderDelegateMock {
-        return LocationProviderDelegateMock(
-            didUpdateLocation: didUpdateLocation ?? { _, _ in XCTFail("Should not be called", file: file, line: line) },
-            didFailWithError: didFailWithError ?? { _, _ in XCTFail("Should not be called", file: file, line: line) }
-        )
     }
 
 }

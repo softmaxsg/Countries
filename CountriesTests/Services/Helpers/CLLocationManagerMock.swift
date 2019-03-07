@@ -13,17 +13,14 @@ final class CLLocationManagerMock: CLLocationManagerProtocol {
     
     private let authorizationStatusImpl: AuthorizationStatusImpl
     private let requestWhenInUseAuthorizationImpl: MethodImpl
-    private let startMonitoringSignificantLocationChangesImpl: MethodImpl
-    private let stopMonitoringSignificantLocationChangesImpl: MethodImpl
+    private let requestLocationImpl: MethodImpl
 
     init(authorizationStatus authorizationStatusImpl: @escaping AuthorizationStatusImpl,
          requestWhenInUseAuthorization requestWhenInUseAuthorizationImpl: @escaping MethodImpl,
-         startMonitoringSignificantLocationChanges startMonitoringSignificantLocationChangesImpl: @escaping MethodImpl,
-         stopMonitoringSignificantLocationChanges stopMonitoringSignificantLocationChangesImpl: @escaping MethodImpl) {
+         requestLocation requestLocationImpl: @escaping MethodImpl) {
         self.authorizationStatusImpl = authorizationStatusImpl
         self.requestWhenInUseAuthorizationImpl = requestWhenInUseAuthorizationImpl
-        self.startMonitoringSignificantLocationChangesImpl = startMonitoringSignificantLocationChangesImpl
-        self.stopMonitoringSignificantLocationChangesImpl = stopMonitoringSignificantLocationChangesImpl
+        self.requestLocationImpl = requestLocationImpl
     }
     
     // Required for delegate methods
@@ -38,12 +35,8 @@ final class CLLocationManagerMock: CLLocationManagerProtocol {
         requestWhenInUseAuthorizationImpl()
     }
     
-    func startMonitoringSignificantLocationChanges() {
-        startMonitoringSignificantLocationChangesImpl()
-    }
-    
-    func stopMonitoringSignificantLocationChanges() {
-        stopMonitoringSignificantLocationChangesImpl()
+    func requestLocation() {
+        requestLocationImpl()
     }
 
 }

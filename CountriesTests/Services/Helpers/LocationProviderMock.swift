@@ -7,24 +7,16 @@ import Foundation
 
 final class LocationProviderMock: LocationProviderProtocol {
     
-    typealias StartMonitoringImpl = (LocationProviderDelegate) -> Void
-    typealias StopMonitoringImpl = () -> Void
+    typealias RequestLocationImpl = (LocationProviderCompletionHandler) -> Void
     
-    private let startMonitoringImpl: StartMonitoringImpl
-    private let stopMonitoringImpl: StopMonitoringImpl
+    private let requestLocationImpl: RequestLocationImpl
     
-    init(startMonitoring startMonitoringImpl: @escaping StartMonitoringImpl,
-         stopMonitoring stopMonitoringImpl: @escaping StopMonitoringImpl) {
-        self.startMonitoringImpl = startMonitoringImpl
-        self.stopMonitoringImpl = stopMonitoringImpl
+    init(requestLocation requestLocationImpl: @escaping RequestLocationImpl) {
+        self.requestLocationImpl = requestLocationImpl
     }
     
-    func startMonitoring(delegate: LocationProviderDelegate) {
-        startMonitoringImpl(delegate)
-    }
-    
-    func stopMonitoring() {
-        stopMonitoringImpl()
+    func requestLocation(completion handler: @escaping LocationProviderCompletionHandler) {
+        requestLocationImpl(handler)
     }
 
 }

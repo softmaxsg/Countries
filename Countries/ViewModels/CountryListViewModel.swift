@@ -64,7 +64,9 @@ final class CountryListViewModel: CountryListViewModelProtocol {
     func loadCountries() {
         currentState = .loading
         
-        locationProvider.startMonitoring(delegate: self)
+        locationProvider.requestLocation { [weak self] result in
+            self?.currentLocation = result
+        }
         
         countriesProvider.loadAll { [weak self] result in
             self?.operationQueue.addOperation {
@@ -83,18 +85,6 @@ final class CountryListViewModel: CountryListViewModelProtocol {
         return currentCountry.map { CurrentCountryViewModel(delegate: delegate, country: $0) }
     }
 
-}
-
-extension CountryListViewModel: LocationProviderDelegate {
-    
-    func locationProvider(_ provider: LocationProviderProtocol, didUpdateLocation location: Location) {
-        currentLocation = .success(location)
-    }
-    
-    func locationProvider(_ provider: LocationProviderProtocol, didFailWithError error: Error) {
-        currentLocation = .failure(error)
-    }
-    
 }
 
 extension CountryListViewModel {

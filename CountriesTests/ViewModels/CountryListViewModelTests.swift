@@ -188,16 +188,13 @@ extension CountryListViewModelTests {
         )
 
         var locationProvider: LocationProviderMock! = nil
-        locationProvider = LocationProviderMock(
-            startMonitoring: { delegate in
-                if let currentLocation = currentLocation {
-                    delegate.locationProvider(locationProvider, didUpdateLocation: currentLocation)
-                } else {
-                    delegate.locationProvider(locationProvider, didFailWithError: MockError.some)
-                }
-            },
-            stopMonitoring: { }
-        )
+        locationProvider = LocationProviderMock { handler in
+            if let currentLocation = currentLocation {
+                handler(.success(currentLocation))
+            } else {
+                handler(.failure(MockError.some))
+            }
+        }
         
         viewModel = CountryListViewModel(
             delegate: delegate ?? defaultDelegate,

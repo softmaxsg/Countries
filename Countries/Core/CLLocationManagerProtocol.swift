@@ -13,8 +13,7 @@ protocol CLLocationManagerProtocol: class {
     func authorizationStatus() -> CLAuthorizationStatus
     func requestWhenInUseAuthorization()
     
-    func startMonitoringSignificantLocationChanges()
-    func stopMonitoringSignificantLocationChanges()
+    func requestLocation()
     
 }
 
