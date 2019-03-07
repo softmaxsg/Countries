@@ -395,7 +395,6 @@
 		D8F6435C2225E636008111FB /* Countries */ = {
 			isa = PBXGroup;
 			children = (
-				D8F6454F2230865C008111FB /* Countries.entitlements */,
 				D8F643F622288876008111FB /* Assemblies */,
 				D8F643832225FEA6008111FB /* Core */,
 				D8F643802225FD5C008111FB /* Models */,
@@ -407,6 +406,7 @@
 				D8F643642225E637008111FB /* Assets.xcassets */,
 				D8F643662225E637008111FB /* LaunchScreen.storyboard */,
 				D8F643692225E637008111FB /* Info.plist */,
+				D8F6454F2230865C008111FB /* Countries.entitlements */,
 			);
 			path = Countries;
 			sourceTree = "<group>";
@@ -702,13 +702,21 @@
 		D8F64523223077F0008111FB /* CountriesTodayWidget */ = {
 			isa = PBXGroup;
 			children = (
-				D8F64524223077F0008111FB /* TodayViewController.swift */,
+				D8F6456F2230971F008111FB /* Views */,
 				D8F64526223077F0008111FB /* MainInterface.storyboard */,
-				D8F64529223077F0008111FB /* Info.plist */,
 				D8F64551223086D7008111FB /* Assets.xcassets */,
+				D8F64529223077F0008111FB /* Info.plist */,
 				D8F645502230866A008111FB /* CountriesTodayWidget.entitlements */,
 			);
 			path = CountriesTodayWidget;
+			sourceTree = "<group>";
+		};
+		D8F6456F2230971F008111FB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D8F64524223077F0008111FB /* TodayViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1272,6 +1280,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7674W923L5;
 				INFOPLIST_FILE = CountriesTodayWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1281,7 +1290,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1292,6 +1301,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7674W923L5;
 				INFOPLIST_FILE = CountriesTodayWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1301,7 +1311,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
