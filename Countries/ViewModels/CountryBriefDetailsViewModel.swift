@@ -4,7 +4,7 @@
 
 import Foundation
 
-protocol CountryBriefDetailsProtocol {
+protocol CountryBriefDetailsViewModelProtocol {
     
     var name: String { get }
     var population: String { get }
@@ -13,7 +13,7 @@ protocol CountryBriefDetailsProtocol {
     
 }
 
-final class CountryBriefDetailsViewModel: CountryBriefDetailsProtocol {
+struct CountryBriefDetailsViewModel: CountryBriefDetailsViewModelProtocol {
     
     let name: String
     let population: String
@@ -33,7 +33,7 @@ final class CountryBriefDetailsViewModel: CountryBriefDetailsProtocol {
 
 extension CountryBriefDetailsViewModel {
     
-    private class func numberFormatter() -> NumberFormatter {
+    private static func numberFormatter() -> NumberFormatter {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         formatter.maximumFractionDigits = 0

@@ -31,7 +31,7 @@ final class CountryDetailsView: UIView {
         set { advancedDetailsWrapper?.isHidden = !newValue }
     }
     
-    func configure(with details: CountryDetailsProtocol) {
+    func configure(with details: CountryDetailsViewModelProtocol) {
         briefCountryView?.configure(with: details)
 
         setText(details.capital, to: capitalLabel, in: capitalWrapper)

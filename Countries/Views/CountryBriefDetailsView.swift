@@ -20,7 +20,7 @@ final class CountryBriefDetailsView: UIView, ImageContainerView {
     // ImageContainerView works with `imageView` property
     var imageView: UIImageView? { return countryFlagImage }
     
-    func configure(with details: CountryBriefDetailsProtocol) {
+    func configure(with details: CountryBriefDetailsViewModelProtocol) {
         nameLabel?.text = details.name
         populationLabel?.text = details.population
         areaSizeLabel?.text = details.areaSize

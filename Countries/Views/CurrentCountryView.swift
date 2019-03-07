@@ -16,7 +16,7 @@ final class CurrentCountryView: UIView {
     func configure(with viewModel: CurrentCountryViewModelProtocol) {
         self.viewModel = viewModel
         
-        detailsView?.configure(with: viewModel)
+        detailsView?.configure(with: viewModel.details)
         updateView(animated: false)
     }
     

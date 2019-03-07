@@ -5,7 +5,7 @@
 import Foundation
 @testable import Countries
 
-extension CountryBriefDetailsProtocol {
+extension CountryBriefDetailsViewModelProtocol {
     
     func isEqual(to country: Country) -> Bool {
         guard name == country.name else { return false }
@@ -26,7 +26,7 @@ extension CountryBriefDetailsProtocol {
     
 }
 
-extension CountryBriefDetailsProtocol {
+extension CountryBriefDetailsViewModelProtocol {
     
     private func numberFormatter() -> NumberFormatter {
         let formatter = NumberFormatter()

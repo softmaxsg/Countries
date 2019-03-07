@@ -143,7 +143,7 @@ final class CountryListViewModelTests: XCTestCase {
         
         // Only brief checking is performed here
         // Detailed testing of CurrentCountryViewModel is implemented separately
-        XCTAssertTrue(currentCountry?.isEqual(to: expectedCountry) ?? false)
+        XCTAssertTrue(currentCountry?.details.isEqual(to: expectedCountry) ?? false)
     }
     
 }

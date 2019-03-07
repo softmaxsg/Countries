@@ -22,7 +22,7 @@ final class CountryDetailsViewTests: CountryDetailsViewTestCase {
             nativeName: countryNativeName,
             population: countryPopulation,
             areaSize: countryAreaSize
-        )))
+        )).details)
         
         adjustSize(for: view)
         snapshotVerifyView(view)
@@ -42,7 +42,7 @@ final class CountryDetailsViewTests: CountryDetailsViewTestCase {
             regionalBlocs: countryRegionalBlocs,
             population: countryPopulation,
             areaSize: countryAreaSize
-        )))
+        )).details)
 
         adjustSize(for: view)
         snapshotVerifyView(view)
@@ -62,7 +62,7 @@ final class CountryDetailsViewTests: CountryDetailsViewTestCase {
             regionalBlocs: countryRegionalBlocs,
             population: countryPopulation,
             areaSize: countryAreaSize
-            )))
+        )).details)
         
         adjustSize(for: view)
         snapshotVerifyView(view)
@@ -82,7 +82,7 @@ final class CountryDetailsViewTests: CountryDetailsViewTestCase {
             regionalBlocs: countryRegionalBlocs,
             population: countryPopulation,
             areaSize: countryAreaSize
-            )))
+        )).details)
         
         adjustSize(for: view)
         snapshotVerifyView(view)
@@ -102,7 +102,7 @@ final class CountryDetailsViewTests: CountryDetailsViewTestCase {
             regionalBlocs: countryRegionalBlocs,
             population: countryPopulation,
             areaSize: countryAreaSize
-            )))
+        )).details)
         
         adjustSize(for: view)
         snapshotVerifyView(view)
@@ -122,7 +122,7 @@ final class CountryDetailsViewTests: CountryDetailsViewTestCase {
             regionalBlocs: countryRegionalBlocs,
             population: countryPopulation,
             areaSize: countryAreaSize
-            )))
+        )).details)
         
         adjustSize(for: view)
         snapshotVerifyView(view)
@@ -142,7 +142,7 @@ final class CountryDetailsViewTests: CountryDetailsViewTestCase {
             regionalBlocs: [],
             population: countryPopulation,
             areaSize: countryAreaSize
-            )))
+        )).details)
         
         adjustSize(for: view)
         snapshotVerifyView(view)

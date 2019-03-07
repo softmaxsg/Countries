@@ -3,7 +3,7 @@
 
 import Foundation
 
-protocol CountryDetailsProtocol: CountryBriefDetailsProtocol {
+protocol CountryDetailsViewModelProtocol: CountryBriefDetailsViewModelProtocol {
     
     var capital: String { get }
     var region: String { get }
@@ -13,7 +13,7 @@ protocol CountryDetailsProtocol: CountryBriefDetailsProtocol {
     
 }
 
-final class CountryDetailsViewModel: CountryDetailsProtocol {
+struct CountryDetailsViewModel: CountryDetailsViewModelProtocol {
     
     private let briefDetails: CountryBriefDetailsViewModel
     

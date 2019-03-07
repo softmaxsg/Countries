@@ -4,7 +4,7 @@
 
 import Foundation
 
-protocol CountryListItemViewModelProtocol: CountryBriefDetailsProtocol {
+protocol CountryListItemViewModelProtocol: CountryBriefDetailsViewModelProtocol {
 }
 
 final class CountryListItemViewModel: CountryListItemViewModelProtocol {
