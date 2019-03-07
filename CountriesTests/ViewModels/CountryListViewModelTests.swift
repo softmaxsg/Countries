@@ -192,8 +192,7 @@ extension CountryListViewModelTests {
             }
         )
 
-        var locationProvider: LocationProviderMock! = nil
-        locationProvider = LocationProviderMock { handler in
+        let locationProvider = LocationProviderMock { handler in
             if let currentLocation = currentLocation {
                 handler(.success(currentLocation))
             } else {

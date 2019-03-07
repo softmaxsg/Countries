@@ -20,3 +20,11 @@ final class LocationProviderMock: LocationProviderProtocol {
     }
 
 }
+
+extension LocationProviderMock {
+    
+    static var empty: LocationProviderMock {
+        return LocationProviderMock { _ in }
+    }
+    
+}

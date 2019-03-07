@@ -27,3 +27,11 @@ final class CountriesProviderMock: CountriesProviderProtocol {
     }
     
 }
+
+extension CountriesProviderMock {
+    
+    static var empty: CountriesProviderMock {
+        return CountriesProviderMock(loadAll: { _ in }, load: { _, _ in })
+    }
+    
+}
