@@ -163,6 +163,10 @@
 		D8F64567223087B6008111FB /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F643F4222887BC008111FB /* DependencyContainer.swift */; };
 		D8F64568223087C1008111FB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F643BA2227148E008111FB /* Constants.swift */; };
 		D8F6456A22309043008111FB /* CountryDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6456922309043008111FB /* CountryDetailsViewModelTests.swift */; };
+		D8F6456B22309290008111FB /* CountryStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64509223051C1008111FB /* CountryStorageService.swift */; };
+		D8F6456C22309295008111FB /* UserDefaultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6450722304EDF008111FB /* UserDefaultsProtocol.swift */; };
+		D8F6456D2230929B008111FB /* JSONEncoderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6450B22305401008111FB /* JSONEncoderProtocol.swift */; };
+		D8F6456E2230929E008111FB /* JSONDecoderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F643B3222713DF008111FB /* JSONDecoderProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -994,20 +998,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8F6456122308753008111FB /* Cancellable.swift in Sources */,
+				D8F6456B22309290008111FB /* CountryStorageService.swift in Sources */,
 				D8F6455E22308737008111FB /* ImageContainerView.swift in Sources */,
 				D8F6456222308757008111FB /* ImageLoader.swift in Sources */,
 				D8F6455C22308737008111FB /* CountryDetailsView.swift in Sources */,
 				D8F6455522308718008111FB /* Currency.swift in Sources */,
+				D8F6456E2230929E008111FB /* JSONDecoderProtocol.swift in Sources */,
 				D8F6455622308718008111FB /* Language.swift in Sources */,
 				D8F64567223087B6008111FB /* DependencyContainer.swift in Sources */,
 				D8F64525223077F0008111FB /* TodayViewController.swift in Sources */,
 				D8F6455422308718008111FB /* Country.swift in Sources */,
 				D8F6455822308718008111FB /* NameTranslations.swift in Sources */,
+				D8F6456D2230929B008111FB /* JSONEncoderProtocol.swift in Sources */,
 				D8F6456422308774008111FB /* URLSessionDataTaskProtocol.swift in Sources */,
 				D8F64568223087C1008111FB /* Constants.swift in Sources */,
 				D8F6456522308796008111FB /* CountryDetailsViewModel.swift in Sources */,
 				D8F64566223087B1008111FB /* UIView+UINib.swift in Sources */,
 				D8F6456022308746008111FB /* CountryBriefDetailsViewModel.swift in Sources */,
+				D8F6456C22309295008111FB /* UserDefaultsProtocol.swift in Sources */,
 				D8F6455A22308737008111FB /* CountryBriefDetailsView.swift in Sources */,
 				D8F6456322308774008111FB /* URLSessionProtocol.swift in Sources */,
 				D8F6455722308718008111FB /* Location.swift in Sources */,
