@@ -166,6 +166,7 @@
 		D8F6456C22309295008111FB /* UserDefaultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6450722304EDF008111FB /* UserDefaultsProtocol.swift */; };
 		D8F6456D2230929B008111FB /* JSONEncoderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6450B22305401008111FB /* JSONEncoderProtocol.swift */; };
 		D8F6456E2230929E008111FB /* JSONDecoderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F643B3222713DF008111FB /* JSONDecoderProtocol.swift */; };
+		D8F645752230985C008111FB /* TodayCountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F645742230985C008111FB /* TodayCountryViewModel.swift */; };
 		D8F64576223099AC008111FB /* CountriesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F643A72226F8F7008111FB /* CountriesProvider.swift */; };
 		D8F64577223099B2008111FB /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64419222C6767008111FB /* LocationProvider.swift */; };
 		D8F6457822315578008111FB /* CLLocationManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64421222C71A8008111FB /* CLLocationManagerProtocol.swift */; };
@@ -347,6 +348,7 @@
 		D8F645502230866A008111FB /* CountriesTodayWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CountriesTodayWidget.entitlements; sourceTree = "<group>"; };
 		D8F64551223086D7008111FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8F6456922309043008111FB /* CountryDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailsViewModelTests.swift; sourceTree = "<group>"; };
+		D8F645742230985C008111FB /* TodayCountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCountryViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -705,6 +707,7 @@
 		D8F64523223077F0008111FB /* CountriesTodayWidget */ = {
 			isa = PBXGroup;
 			children = (
+				D8F645732230983E008111FB /* ViewModels */,
 				D8F6456F2230971F008111FB /* Views */,
 				D8F64526223077F0008111FB /* MainInterface.storyboard */,
 				D8F64551223086D7008111FB /* Assets.xcassets */,
@@ -720,6 +723,14 @@
 				D8F64524223077F0008111FB /* TodayViewController.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		D8F645732230983E008111FB /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D8F645742230985C008111FB /* TodayCountryViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1029,6 +1040,7 @@
 				D8F6456422308774008111FB /* URLSessionDataTaskProtocol.swift in Sources */,
 				D8F64568223087C1008111FB /* Constants.swift in Sources */,
 				D8F6456522308796008111FB /* CountryDetailsViewModel.swift in Sources */,
+				D8F645752230985C008111FB /* TodayCountryViewModel.swift in Sources */,
 				D8F64566223087B1008111FB /* UIView+UINib.swift in Sources */,
 				D8F6456022308746008111FB /* CountryBriefDetailsViewModel.swift in Sources */,
 				D8F6456C22309295008111FB /* UserDefaultsProtocol.swift in Sources */,
