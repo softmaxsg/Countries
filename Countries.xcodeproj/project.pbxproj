@@ -166,6 +166,12 @@
 		D8F6456C22309295008111FB /* UserDefaultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6450722304EDF008111FB /* UserDefaultsProtocol.swift */; };
 		D8F6456D2230929B008111FB /* JSONEncoderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6450B22305401008111FB /* JSONEncoderProtocol.swift */; };
 		D8F6456E2230929E008111FB /* JSONDecoderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F643B3222713DF008111FB /* JSONDecoderProtocol.swift */; };
+		D8F64576223099AC008111FB /* CountriesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F643A72226F8F7008111FB /* CountriesProvider.swift */; };
+		D8F64577223099B2008111FB /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64419222C6767008111FB /* LocationProvider.swift */; };
+		D8F6457822315578008111FB /* CLLocationManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64421222C71A8008111FB /* CLLocationManagerProtocol.swift */; };
+		D8F645792231557D008111FB /* CountryGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6441D222C7083008111FB /* CountryGeocoder.swift */; };
+		D8F6457A22315597008111FB /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F643842225FEDC008111FB /* Result.swift */; };
+		D8F6457B2231559F008111FB /* CLGeocoderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6441F222C70CF008111FB /* CLGeocoderProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1002,10 +1008,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8F6456122308753008111FB /* Cancellable.swift in Sources */,
+				D8F645792231557D008111FB /* CountryGeocoder.swift in Sources */,
 				D8F6456B22309290008111FB /* CountryStorageService.swift in Sources */,
 				D8F6455E22308737008111FB /* ImageContainerView.swift in Sources */,
 				D8F6456222308757008111FB /* ImageLoader.swift in Sources */,
 				D8F6455C22308737008111FB /* CountryDetailsView.swift in Sources */,
+				D8F6457B2231559F008111FB /* CLGeocoderProtocol.swift in Sources */,
+				D8F6457A22315597008111FB /* Result.swift in Sources */,
 				D8F6455522308718008111FB /* Currency.swift in Sources */,
 				D8F6456E2230929E008111FB /* JSONDecoderProtocol.swift in Sources */,
 				D8F6455622308718008111FB /* Language.swift in Sources */,
@@ -1013,7 +1022,10 @@
 				D8F64525223077F0008111FB /* TodayViewController.swift in Sources */,
 				D8F6455422308718008111FB /* Country.swift in Sources */,
 				D8F6455822308718008111FB /* NameTranslations.swift in Sources */,
+				D8F64577223099B2008111FB /* LocationProvider.swift in Sources */,
 				D8F6456D2230929B008111FB /* JSONEncoderProtocol.swift in Sources */,
+				D8F64576223099AC008111FB /* CountriesProvider.swift in Sources */,
+				D8F6457822315578008111FB /* CLLocationManagerProtocol.swift in Sources */,
 				D8F6456422308774008111FB /* URLSessionDataTaskProtocol.swift in Sources */,
 				D8F64568223087C1008111FB /* Constants.swift in Sources */,
 				D8F6456522308796008111FB /* CountryDetailsViewModel.swift in Sources */,
