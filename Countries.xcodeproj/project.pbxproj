@@ -18,6 +18,9 @@
 		D84CC8042232DBBF00045748 /* CountriesTodayWidgetViewModels.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D84CC7EE2232DBBF00045748 /* CountriesTodayWidgetViewModels.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D84CC80B2232DBD800045748 /* TodayCountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F645742230985C008111FB /* TodayCountryViewModel.swift */; };
 		D84CC80C2232DBEA00045748 /* CountriesShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F6459C2231D304008111FB /* CountriesShared.framework */; };
+		D84CC80E2232DCF500045748 /* TodayCountryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84CC80D2232DCF500045748 /* TodayCountryViewModelTests.swift */; };
+		D84CC80F2232DD1B00045748 /* CountriesShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F6459C2231D304008111FB /* CountriesShared.framework */; };
+		D84CC8102232DD1B00045748 /* CountriesSharedTestsHelpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E7BBBB2231DFC9007214F3 /* CountriesSharedTestsHelpers.framework */; };
 		D8E7BBB52231DF51007214F3 /* ResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6438B2226AC2D008111FB /* ResultTests.swift */; };
 		D8E7BBBF2231DFC9007214F3 /* CountriesSharedTestsHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E7BBBD2231DFC9007214F3 /* CountriesSharedTestsHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D8E7BBC42231DFFE007214F3 /* Array+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64407222BD64A008111FB /* Array+Random.swift */; };
@@ -260,6 +263,7 @@
 		D84CC7F12232DBBF00045748 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D84CC7F62232DBBF00045748 /* CountriesTodayWidgetViewModelsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountriesTodayWidgetViewModelsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D84CC7FF2232DBBF00045748 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D84CC80D2232DCF500045748 /* TodayCountryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCountryViewModelTests.swift; sourceTree = "<group>"; };
 		D8E7BBBB2231DFC9007214F3 /* CountriesSharedTestsHelpers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CountriesSharedTestsHelpers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8E7BBBD2231DFC9007214F3 /* CountriesSharedTestsHelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountriesSharedTestsHelpers.h; sourceTree = "<group>"; };
 		D8E7BBBE2231DFC9007214F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -428,6 +432,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D84CC80F2232DD1B00045748 /* CountriesShared.framework in Frameworks */,
+				D84CC8102232DD1B00045748 /* CountriesSharedTestsHelpers.framework in Frameworks */,
 				D84CC7F72232DBBF00045748 /* CountriesTodayWidgetViewModels.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,6 +507,7 @@
 			isa = PBXGroup;
 			children = (
 				D84CC7FF2232DBBF00045748 /* Info.plist */,
+				D84CC80D2232DCF500045748 /* TodayCountryViewModelTests.swift */,
 			);
 			path = CountriesTodayWidgetViewModelsTests;
 			sourceTree = "<group>";
@@ -1182,7 +1189,7 @@
 					};
 					D84CC7F52232DBBF00045748 = {
 						CreatedOnToolsVersion = 10.1;
-						TestTargetID = D8F643592225E636008111FB;
+						LastSwiftMigration = 1010;
 					};
 					D8E7BBBA2231DFC9007214F3 = {
 						CreatedOnToolsVersion = 10.1;
@@ -1339,6 +1346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D84CC80E2232DCF500045748 /* TodayCountryViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1633,6 +1641,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CountriesTodayWidgetViewModelsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1642,9 +1651,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.chupryk.CountriesTodayWidgetViewModelsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Countries.app/Countries";
 			};
 			name = Debug;
 		};
@@ -1652,6 +1661,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CountriesTodayWidgetViewModelsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1663,7 +1673,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Countries.app/Countries";
 			};
 			name = Release;
 		};

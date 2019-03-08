@@ -5,7 +5,7 @@
 import Foundation
 import CountriesShared
 
-public enum UpdateResult {
+public enum UpdateResult: Equatable {
     
     case new
     case same
@@ -61,7 +61,7 @@ public final class TodayCountryViewModel: TodayCountryViewModelProtocol {
             
             self?.countriesProvider.load(with: countryCode) { [weak self] result in
                 self?.currentCountry = result.value
-                handler(.new)
+                handler(result.value != nil ? .new : .error)
             }
         }
     }
