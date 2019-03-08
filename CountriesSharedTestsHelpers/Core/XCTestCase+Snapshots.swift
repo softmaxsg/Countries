@@ -7,7 +7,7 @@ import XCTest
 extension XCTest {
     
     public func snapshotVerifyView(_ view: UIView, file: StaticString = #file, line: UInt = #line) {
-        let bundle = Bundle(for: BundleIdentifier.self)
+        let bundle = Bundle(for: type(of: self))
         let referenceImageName = "\(normalizedName)@\(Int((view.window?.screen ?? UIScreen.main).scale))x"
 
         guard let expectedDataURL = bundle.url(forResource: referenceImageName, withExtension: "png"),
@@ -44,10 +44,18 @@ extension XCTest {
 extension UIView {
     
     fileprivate func snapshotData() -> Data {
-        let renderer = UIGraphicsImageRenderer(size: bounds.size)
-        return renderer.pngData { _ in
-            drawHierarchy(in: bounds, afterScreenUpdates: true)
+        return imagePresentation().pngData() ?? Data()
+    }
+    
+    private func imagePresentation() -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(frame.size, false, (window?.screen ?? UIScreen.main).scale)
+        defer { UIGraphicsEndImageContext() }
+        
+        if let context = UIGraphicsGetCurrentContext() {
+            layer.render(in: context)
         }
+        
+        return UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
     }
     
 }

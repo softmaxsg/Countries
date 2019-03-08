@@ -40,6 +40,8 @@ extension CountryDetailsViewTestCase {
             ).height
         
         view.frame = CGRect(x: 0, y: 0, width: defaultWidth, height: height)
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
     }
     
 }
