@@ -11,6 +11,9 @@
 		D84882142231EF9D0096E578 /* CountriesSharedTestsHelpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E7BBBB2231DFC9007214F3 /* CountriesSharedTestsHelpers.framework */; };
 		D84882312232A05A0096E578 /* CountriesShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F6459C2231D304008111FB /* CountriesShared.framework */; };
 		D84882322232A05A0096E578 /* CountriesSharedTestsHelpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E7BBBB2231DFC9007214F3 /* CountriesSharedTestsHelpers.framework */; };
+		D84CC7DB2232DA5000045748 /* CountriesTodayWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D8F6451F223077F0008111FB /* CountriesTodayWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D84CC7E42232DAA400045748 /* CountriesShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F6459C2231D304008111FB /* CountriesShared.framework */; };
+		D84CC7E52232DAA400045748 /* CountriesShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D8F6459C2231D304008111FB /* CountriesShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D8E7BBB52231DF51007214F3 /* ResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6438B2226AC2D008111FB /* ResultTests.swift */; };
 		D8E7BBBF2231DFC9007214F3 /* CountriesSharedTestsHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E7BBBD2231DFC9007214F3 /* CountriesSharedTestsHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D8E7BBC42231DFFE007214F3 /* Array+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64407222BD64A008111FB /* Array+Random.swift */; };
@@ -117,7 +120,6 @@
 		D8F64522223077F0008111FB /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F64521223077F0008111FB /* NotificationCenter.framework */; };
 		D8F64525223077F0008111FB /* TodayCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64524223077F0008111FB /* TodayCountryViewController.swift */; };
 		D8F64528223077F0008111FB /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8F64526223077F0008111FB /* MainInterface.storyboard */; };
-		D8F6452C223077F0008111FB /* CountriesTodayWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D8F6451F223077F0008111FB /* CountriesTodayWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D8F64552223086D7008111FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8F64551223086D7008111FB /* Assets.xcassets */; };
 		D8F645752230985C008111FB /* TodayCountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F645742230985C008111FB /* TodayCountryViewModel.swift */; };
 		D8F645962231CFA8008111FB /* TodayCountryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F645952231CFA8008111FB /* TodayCountryAssembly.swift */; };
@@ -154,7 +156,6 @@
 		D8F645D02231D3C2008111FB /* CountryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6448E222F0238008111FB /* CountryDetailsView.swift */; };
 		D8F645D12231D3C2008111FB /* CountryDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8F64490222F0270008111FB /* CountryDetailsView.xib */; };
 		D8F645D22231D3CB008111FB /* ImageContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F643DC22286971008111FB /* ImageContainerView.swift */; };
-		D8F645D32231D41E008111FB /* CountriesShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F6459C2231D304008111FB /* CountriesShared.framework */; };
 		D8F645D42231D42F008111FB /* CountriesShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F6459C2231D304008111FB /* CountriesShared.framework */; };
 /* End PBXBuildFile section */
 
@@ -165,6 +166,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = D8F643592225E636008111FB;
 			remoteInfo = Countries;
+		};
+		D84CC7DC2232DA5000045748 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8F643522225E636008111FB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D8F6451E223077F0008111FB;
+			remoteInfo = CountriesTodayWidget;
+		};
+		D84CC7E62232DAA400045748 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8F643522225E636008111FB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D8F6459B2231D304008111FB;
+			remoteInfo = CountriesShared;
 		};
 		D8E7BBCE2231E04A007214F3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -187,13 +202,6 @@
 			remoteGlobalIDString = D8F643592225E636008111FB;
 			remoteInfo = Countries;
 		};
-		D8F6452A223077F0008111FB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D8F643522225E636008111FB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D8F6451E223077F0008111FB;
-			remoteInfo = CountriesTodayWidget;
-		};
 		D8F645A62231D304008111FB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D8F643522225E636008111FB /* Project object */;
@@ -204,15 +212,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		D8F64530223077F0008111FB /* Embed App Extensions */ = {
+		D84CC7DE2232DA5000045748 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				D8F6452C223077F0008111FB /* CountriesTodayWidget.appex in Embed App Extensions */,
+				D84CC7DB2232DA5000045748 /* CountriesTodayWidget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D84CC7E82232DAA500045748 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D84CC7E52232DAA400045748 /* CountriesShared.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -398,7 +417,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8F645D32231D41E008111FB /* CountriesShared.framework in Frameworks */,
+				D84CC7E42232DAA400045748 /* CountriesShared.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1002,12 +1021,14 @@
 				D8F643562225E636008111FB /* Sources */,
 				D8F643572225E636008111FB /* Frameworks */,
 				D8F643582225E636008111FB /* Resources */,
-				D8F64530223077F0008111FB /* Embed App Extensions */,
+				D84CC7DE2232DA5000045748 /* Embed App Extensions */,
+				D84CC7E82232DAA500045748 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D8F6452B223077F0008111FB /* PBXTargetDependency */,
+				D84CC7DD2232DA5000045748 /* PBXTargetDependency */,
+				D84CC7E72232DAA400045748 /* PBXTargetDependency */,
 			);
 			name = Countries;
 			productName = Countries;
@@ -1400,6 +1421,16 @@
 			target = D8F643592225E636008111FB /* Countries */;
 			targetProxy = D848822C2232A0090096E578 /* PBXContainerItemProxy */;
 		};
+		D84CC7DD2232DA5000045748 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D8F6451E223077F0008111FB /* CountriesTodayWidget */;
+			targetProxy = D84CC7DC2232DA5000045748 /* PBXContainerItemProxy */;
+		};
+		D84CC7E72232DAA400045748 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D8F6459B2231D304008111FB /* CountriesShared */;
+			targetProxy = D84CC7E62232DAA400045748 /* PBXContainerItemProxy */;
+		};
 		D8E7BBCF2231E04A007214F3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D8E7BBBA2231DFC9007214F3 /* CountriesSharedTestsHelpers */;
@@ -1414,11 +1445,6 @@
 			isa = PBXTargetDependency;
 			target = D8F643592225E636008111FB /* Countries */;
 			targetProxy = D8F6436F2225E637008111FB /* PBXContainerItemProxy */;
-		};
-		D8F6452B223077F0008111FB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D8F6451E223077F0008111FB /* CountriesTodayWidget */;
-			targetProxy = D8F6452A223077F0008111FB /* PBXContainerItemProxy */;
 		};
 		D8F645A72231D304008111FB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1797,6 +1823,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7674W923L5;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1826,6 +1853,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7674W923L5;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";

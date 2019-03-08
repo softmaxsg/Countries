@@ -67,16 +67,26 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.springboard">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D8F643592225E636008111FB"
-            BuildableName = "Countries.app"
-            BlueprintName = "Countries"
+            BlueprintIdentifier = "D8F6451E223077F0008111FB"
+            BuildableName = "CountriesTodayWidget.appex"
+            BlueprintName = "CountriesTodayWidget"
             ReferencedContainer = "container:Countries.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "D8F6451E223077F0008111FB"
+            BuildableName = "CountriesTodayWidget.appex"
+            BlueprintName = "CountriesTodayWidget"
+            ReferencedContainer = "container:Countries.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
