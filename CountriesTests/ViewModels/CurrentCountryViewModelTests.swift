@@ -3,6 +3,7 @@
 //
 
 import XCTest
+import CountriesSharedTestsHelpers
 @testable import Countries
 
 final class CurrentCountryViewModelTests: XCTestCase {

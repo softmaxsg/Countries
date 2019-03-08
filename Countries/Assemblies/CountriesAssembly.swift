@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import CountriesShared
 
 final class CountriesAssembly {
     

@@ -4,6 +4,7 @@
 
 import UIKit
 import NotificationCenter
+import CountriesShared
 
 class TodayCountryViewController: UIViewController, NCWidgetProviding {
         

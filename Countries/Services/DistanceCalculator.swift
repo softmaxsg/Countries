@@ -4,6 +4,7 @@
 
 import Foundation
 import CoreLocation
+import CountriesShared
 
 protocol DistanceCalculatorProtocol {
     

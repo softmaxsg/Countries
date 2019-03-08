@@ -3,6 +3,8 @@
 //
 
 import XCTest
+import CountriesShared
+import CountriesSharedTestsHelpers
 @testable import Countries
 
 final class CountryViewCellTests: CountryDetailsViewTestCase {

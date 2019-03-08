@@ -3,6 +3,7 @@
 //
 
 import UIKit
+import CountriesShared
 
 final class CurrentCountryView: UIView {
     

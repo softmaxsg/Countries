@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import CountriesShared
 @testable import Countries
 
 final class SortingServiceMock: SortingServiceProtocol {

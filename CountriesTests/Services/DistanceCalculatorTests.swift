@@ -4,6 +4,8 @@
 
 import XCTest
 import CoreLocation
+import CountriesShared
+import CountriesSharedTestsHelpers
 @testable import Countries
 
 final class DistanceCalculatorTests: XCTestCase {
