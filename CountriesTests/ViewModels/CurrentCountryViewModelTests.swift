@@ -3,6 +3,7 @@
 //
 
 import XCTest
+import CountriesShared
 import CountriesSharedTestsHelpers
 @testable import Countries
 
@@ -21,6 +22,12 @@ final class CurrentCountryViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 1)
         
         XCTAssertEqual(viewModel.viewMode, .expanded)
+    }
+    
+    func testCountryDetails() {
+        let expectedCountry = Country.random()
+        let viewModel = CurrentCountryViewModel(delegate: CurrentCountryViewModelDelegateMock.empty, country: expectedCountry)
+        XCTAssertTrue(viewModel.details.isEqual(to: expectedCountry))
     }
 
 }
