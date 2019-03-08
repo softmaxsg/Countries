@@ -12,6 +12,12 @@
 		D84CC7DB2232DA5000045748 /* CountriesTodayWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D8F6451F223077F0008111FB /* CountriesTodayWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D84CC7E42232DAA400045748 /* CountriesShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F6459C2231D304008111FB /* CountriesShared.framework */; };
 		D84CC7E52232DAA400045748 /* CountriesShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D8F6459C2231D304008111FB /* CountriesShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D84CC7F72232DBBF00045748 /* CountriesTodayWidgetViewModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D84CC7EE2232DBBF00045748 /* CountriesTodayWidgetViewModels.framework */; };
+		D84CC8002232DBBF00045748 /* CountriesTodayWidgetViewModels.h in Headers */ = {isa = PBXBuildFile; fileRef = D84CC7F02232DBBF00045748 /* CountriesTodayWidgetViewModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D84CC8032232DBBF00045748 /* CountriesTodayWidgetViewModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D84CC7EE2232DBBF00045748 /* CountriesTodayWidgetViewModels.framework */; };
+		D84CC8042232DBBF00045748 /* CountriesTodayWidgetViewModels.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D84CC7EE2232DBBF00045748 /* CountriesTodayWidgetViewModels.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D84CC80B2232DBD800045748 /* TodayCountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F645742230985C008111FB /* TodayCountryViewModel.swift */; };
+		D84CC80C2232DBEA00045748 /* CountriesShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F6459C2231D304008111FB /* CountriesShared.framework */; };
 		D8E7BBB52231DF51007214F3 /* ResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6438B2226AC2D008111FB /* ResultTests.swift */; };
 		D8E7BBBF2231DFC9007214F3 /* CountriesSharedTestsHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E7BBBD2231DFC9007214F3 /* CountriesSharedTestsHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D8E7BBC42231DFFE007214F3 /* Array+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64407222BD64A008111FB /* Array+Random.swift */; };
@@ -119,7 +125,6 @@
 		D8F64525223077F0008111FB /* TodayCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F64524223077F0008111FB /* TodayCountryViewController.swift */; };
 		D8F64528223077F0008111FB /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8F64526223077F0008111FB /* MainInterface.storyboard */; };
 		D8F64552223086D7008111FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8F64551223086D7008111FB /* Assets.xcassets */; };
-		D8F645752230985C008111FB /* TodayCountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F645742230985C008111FB /* TodayCountryViewModel.swift */; };
 		D8F645962231CFA8008111FB /* TodayCountryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F645952231CFA8008111FB /* TodayCountryAssembly.swift */; };
 		D8F645A52231D304008111FB /* CountriesShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F6459C2231D304008111FB /* CountriesShared.framework */; };
 		D8F645AC2231D305008111FB /* CountriesShared.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F6459E2231D304008111FB /* CountriesShared.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -172,6 +177,27 @@
 			remoteGlobalIDString = D8F6459B2231D304008111FB;
 			remoteInfo = CountriesShared;
 		};
+		D84CC7F82232DBBF00045748 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8F643522225E636008111FB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D84CC7ED2232DBBF00045748;
+			remoteInfo = CountriesTodayWidgetViewModels;
+		};
+		D84CC7FA2232DBBF00045748 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8F643522225E636008111FB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D8F643592225E636008111FB;
+			remoteInfo = Countries;
+		};
+		D84CC8012232DBBF00045748 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8F643522225E636008111FB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D84CC7ED2232DBBF00045748;
+			remoteInfo = CountriesTodayWidgetViewModels;
+		};
 		D8E7BBCE2231E04A007214F3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D8F643522225E636008111FB /* Project object */;
@@ -220,6 +246,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				D84CC8042232DBBF00045748 /* CountriesTodayWidgetViewModels.framework in Embed Frameworks */,
 				D84CC7E52232DAA400045748 /* CountriesShared.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -228,6 +255,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D84CC7EE2232DBBF00045748 /* CountriesTodayWidgetViewModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CountriesTodayWidgetViewModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D84CC7F02232DBBF00045748 /* CountriesTodayWidgetViewModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountriesTodayWidgetViewModels.h; sourceTree = "<group>"; };
+		D84CC7F12232DBBF00045748 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D84CC7F62232DBBF00045748 /* CountriesTodayWidgetViewModelsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountriesTodayWidgetViewModelsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D84CC7FF2232DBBF00045748 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8E7BBBB2231DFC9007214F3 /* CountriesSharedTestsHelpers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CountriesSharedTestsHelpers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8E7BBBD2231DFC9007214F3 /* CountriesSharedTestsHelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountriesSharedTestsHelpers.h; sourceTree = "<group>"; };
 		D8E7BBBE2231DFC9007214F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -384,6 +416,22 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D84CC7EB2232DBBF00045748 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D84CC80C2232DBEA00045748 /* CountriesShared.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D84CC7F32232DBBF00045748 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D84CC7F72232DBBF00045748 /* CountriesTodayWidgetViewModels.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D8E7BBB82231DFC9007214F3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -397,6 +445,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D84CC8032232DBBF00045748 /* CountriesTodayWidgetViewModels.framework in Frameworks */,
 				D84CC7E42232DAA400045748 /* CountriesShared.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,6 +487,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D84CC7EF2232DBBF00045748 /* CountriesTodayWidgetViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D8F645742230985C008111FB /* TodayCountryViewModel.swift */,
+				D84CC7F02232DBBF00045748 /* CountriesTodayWidgetViewModels.h */,
+				D84CC7F12232DBBF00045748 /* Info.plist */,
+			);
+			path = CountriesTodayWidgetViewModels;
+			sourceTree = "<group>";
+		};
+		D84CC7FC2232DBBF00045748 /* CountriesTodayWidgetViewModelsTests */ = {
+			isa = PBXGroup;
+			children = (
+				D84CC7FF2232DBBF00045748 /* Info.plist */,
+			);
+			path = CountriesTodayWidgetViewModelsTests;
+			sourceTree = "<group>";
+		};
 		D8E7BBBC2231DFC9007214F3 /* CountriesSharedTestsHelpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -567,6 +634,8 @@
 				D8F6459D2231D304008111FB /* CountriesShared */,
 				D8F645A82231D305008111FB /* CountriesSharedTests */,
 				D8E7BBBC2231DFC9007214F3 /* CountriesSharedTestsHelpers */,
+				D84CC7EF2232DBBF00045748 /* CountriesTodayWidgetViewModels */,
+				D84CC7FC2232DBBF00045748 /* CountriesTodayWidgetViewModelsTests */,
 				D8F64520223077F0008111FB /* Frameworks */,
 				D8F6435B2225E636008111FB /* Products */,
 			);
@@ -581,6 +650,8 @@
 				D8F6459C2231D304008111FB /* CountriesShared.framework */,
 				D8F645A42231D304008111FB /* CountriesSharedTests.xctest */,
 				D8E7BBBB2231DFC9007214F3 /* CountriesSharedTestsHelpers.framework */,
+				D84CC7EE2232DBBF00045748 /* CountriesTodayWidgetViewModels.framework */,
+				D84CC7F62232DBBF00045748 /* CountriesTodayWidgetViewModelsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -789,7 +860,6 @@
 			isa = PBXGroup;
 			children = (
 				D8F645942231CF8C008111FB /* Assemblies */,
-				D8F645732230983E008111FB /* ViewModels */,
 				D8F6456F2230971F008111FB /* Views */,
 				D8F64526223077F0008111FB /* MainInterface.storyboard */,
 				D8F64551223086D7008111FB /* Assets.xcassets */,
@@ -805,14 +875,6 @@
 				D8F64524223077F0008111FB /* TodayCountryViewController.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		D8F645732230983E008111FB /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				D8F645742230985C008111FB /* TodayCountryViewModel.swift */,
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		D8F645942231CF8C008111FB /* Assemblies */ = {
@@ -928,6 +990,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		D84CC7E92232DBBF00045748 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D84CC8002232DBBF00045748 /* CountriesTodayWidgetViewModels.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D8E7BBB62231DFC9007214F3 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -947,6 +1017,43 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		D84CC7ED2232DBBF00045748 /* CountriesTodayWidgetViewModels */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D84CC8052232DBBF00045748 /* Build configuration list for PBXNativeTarget "CountriesTodayWidgetViewModels" */;
+			buildPhases = (
+				D84CC7E92232DBBF00045748 /* Headers */,
+				D84CC7EA2232DBBF00045748 /* Sources */,
+				D84CC7EB2232DBBF00045748 /* Frameworks */,
+				D84CC7EC2232DBBF00045748 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CountriesTodayWidgetViewModels;
+			productName = CountriesTodayWidgetViewModels;
+			productReference = D84CC7EE2232DBBF00045748 /* CountriesTodayWidgetViewModels.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D84CC7F52232DBBF00045748 /* CountriesTodayWidgetViewModelsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D84CC8082232DBBF00045748 /* Build configuration list for PBXNativeTarget "CountriesTodayWidgetViewModelsTests" */;
+			buildPhases = (
+				D84CC7F22232DBBF00045748 /* Sources */,
+				D84CC7F32232DBBF00045748 /* Frameworks */,
+				D84CC7F42232DBBF00045748 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D84CC7F92232DBBF00045748 /* PBXTargetDependency */,
+				D84CC7FB2232DBBF00045748 /* PBXTargetDependency */,
+			);
+			name = CountriesTodayWidgetViewModelsTests;
+			productName = CountriesTodayWidgetViewModelsTests;
+			productReference = D84CC7F62232DBBF00045748 /* CountriesTodayWidgetViewModelsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D8E7BBBA2231DFC9007214F3 /* CountriesSharedTestsHelpers */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D8E7BBC02231DFC9007214F3 /* Build configuration list for PBXNativeTarget "CountriesSharedTestsHelpers" */;
@@ -981,6 +1088,7 @@
 			dependencies = (
 				D84CC7DD2232DA5000045748 /* PBXTargetDependency */,
 				D84CC7E72232DAA400045748 /* PBXTargetDependency */,
+				D84CC8022232DBBF00045748 /* PBXTargetDependency */,
 			);
 			name = Countries;
 			productName = Countries;
@@ -1069,6 +1177,13 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Vitaly Chupryk";
 				TargetAttributes = {
+					D84CC7ED2232DBBF00045748 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					D84CC7F52232DBBF00045748 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = D8F643592225E636008111FB;
+					};
 					D8E7BBBA2231DFC9007214F3 = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -1119,11 +1234,27 @@
 				D8F6459B2231D304008111FB /* CountriesShared */,
 				D8F645A32231D304008111FB /* CountriesSharedTests */,
 				D8E7BBBA2231DFC9007214F3 /* CountriesSharedTestsHelpers */,
+				D84CC7ED2232DBBF00045748 /* CountriesTodayWidgetViewModels */,
+				D84CC7F52232DBBF00045748 /* CountriesTodayWidgetViewModelsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D84CC7EC2232DBBF00045748 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D84CC7F42232DBBF00045748 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D8E7BBB92231DFC9007214F3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1196,6 +1327,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D84CC7EA2232DBBF00045748 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D84CC80B2232DBD800045748 /* TodayCountryViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D84CC7F22232DBBF00045748 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D8E7BBB72231DFC9007214F3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1288,7 +1434,6 @@
 			files = (
 				D8F64525223077F0008111FB /* TodayCountryViewController.swift in Sources */,
 				D8F645962231CFA8008111FB /* TodayCountryAssembly.swift in Sources */,
-				D8F645752230985C008111FB /* TodayCountryViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1359,6 +1504,21 @@
 			target = D8F6459B2231D304008111FB /* CountriesShared */;
 			targetProxy = D84CC7E62232DAA400045748 /* PBXContainerItemProxy */;
 		};
+		D84CC7F92232DBBF00045748 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D84CC7ED2232DBBF00045748 /* CountriesTodayWidgetViewModels */;
+			targetProxy = D84CC7F82232DBBF00045748 /* PBXContainerItemProxy */;
+		};
+		D84CC7FB2232DBBF00045748 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D8F643592225E636008111FB /* Countries */;
+			targetProxy = D84CC7FA2232DBBF00045748 /* PBXContainerItemProxy */;
+		};
+		D84CC8022232DBBF00045748 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D84CC7ED2232DBBF00045748 /* CountriesTodayWidgetViewModels */;
+			targetProxy = D84CC8012232DBBF00045748 /* PBXContainerItemProxy */;
+		};
 		D8E7BBCF2231E04A007214F3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D8E7BBBA2231DFC9007214F3 /* CountriesSharedTestsHelpers */;
@@ -1409,6 +1569,104 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D84CC8062232DBBF00045748 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7674W923L5;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CountriesTodayWidgetViewModels/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chupryk.CountriesTodayWidgetViewModels;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D84CC8072232DBBF00045748 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7674W923L5;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CountriesTodayWidgetViewModels/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chupryk.CountriesTodayWidgetViewModels;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D84CC8092232DBBF00045748 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CountriesTodayWidgetViewModelsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chupryk.CountriesTodayWidgetViewModelsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Countries.app/Countries";
+			};
+			name = Debug;
+		};
+		D84CC80A2232DBBF00045748 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CountriesTodayWidgetViewModelsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chupryk.CountriesTodayWidgetViewModelsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Countries.app/Countries";
+			};
+			name = Release;
+		};
 		D8E7BBC12231DFC9007214F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1804,6 +2062,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D84CC8052232DBBF00045748 /* Build configuration list for PBXNativeTarget "CountriesTodayWidgetViewModels" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D84CC8062232DBBF00045748 /* Debug */,
+				D84CC8072232DBBF00045748 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D84CC8082232DBBF00045748 /* Build configuration list for PBXNativeTarget "CountriesTodayWidgetViewModelsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D84CC8092232DBBF00045748 /* Debug */,
+				D84CC80A2232DBBF00045748 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D8E7BBC02231DFC9007214F3 /* Build configuration list for PBXNativeTarget "CountriesSharedTestsHelpers" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

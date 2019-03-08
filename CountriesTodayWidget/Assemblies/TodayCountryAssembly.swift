@@ -4,6 +4,7 @@
 
 import Foundation
 import CountriesShared
+import CountriesTodayWidgetViewModels
 
 final class TodayCountryAssembly {
     

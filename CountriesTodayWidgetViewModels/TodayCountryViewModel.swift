@@ -5,7 +5,7 @@
 import Foundation
 import CountriesShared
 
-enum UpdateResult {
+public enum UpdateResult {
     
     case new
     case same
@@ -13,7 +13,7 @@ enum UpdateResult {
     
 }
 
-protocol TodayCountryViewModelProtocol {
+public protocol TodayCountryViewModelProtocol {
 
     var details: CountryDetailsViewModelProtocol? { get }
     
@@ -21,7 +21,7 @@ protocol TodayCountryViewModelProtocol {
     
 }
 
-final class TodayCountryViewModel: TodayCountryViewModelProtocol {
+public final class TodayCountryViewModel: TodayCountryViewModelProtocol {
     
     private let countryStorageService: CountryStorageServiceProtocol
     private let countriesProvider: CountriesProviderProtocol
@@ -34,11 +34,11 @@ final class TodayCountryViewModel: TodayCountryViewModelProtocol {
         }
     }
 
-    private(set) var details: CountryDetailsViewModelProtocol?
+    private(set) public var details: CountryDetailsViewModelProtocol?
 
-    init(locationProvider: LocationProviderProtocol,
-         countryStorageService: CountryStorageServiceProtocol,
-         countriesProvider: CountriesProviderProtocol) {
+    public init(locationProvider: LocationProviderProtocol,
+                countryStorageService: CountryStorageServiceProtocol,
+                countriesProvider: CountriesProviderProtocol) {
         self.locationProvider = locationProvider
         self.countryStorageService = countryStorageService
         self.countriesProvider = countriesProvider
@@ -46,7 +46,7 @@ final class TodayCountryViewModel: TodayCountryViewModelProtocol {
         defer { currentCountry = countryStorageService.loadCountry() }
     }
 
-    func updateCountry(completion handler: @escaping (UpdateResult) -> Void) {
+    public func updateCountry(completion handler: @escaping (UpdateResult) -> Void) {
         locationProvider.requestLocation { [weak self] result in
             guard let countryCode = result.value?.countryCode else {
                 self?.currentCountry = nil
